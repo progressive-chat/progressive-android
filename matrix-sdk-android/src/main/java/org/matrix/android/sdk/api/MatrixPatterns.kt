@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,188 +16,58 @@
 
 package org.matrix.android.sdk.api
 
+import chat.progressive.app.native.ProgressiveNative
 import org.matrix.android.sdk.BuildConfig
 import org.matrix.android.sdk.internal.util.removeInvalidRoomNameChars
 import org.matrix.android.sdk.internal.util.replaceSpaceChars
 import timber.log.Timber
 
 /**
- * This class contains pattern to match the different Matrix ids
+ * Matrix identifier validation using C++ native implementation.
  * Ref: https://matrix.org/docs/spec/appendices#identifier-grammar
  */
 object MatrixPatterns {
 
-    // Note: TLD is not mandatory (localhost, IP address...)
-    private const val DOMAIN_REGEX = ":[A-Z0-9.-]+(:[0-9]{2,5})?"
+    // Legacy regex patterns (kept for backward compat — delegates to C++)
+    val PATTERN_CONTAIN_MATRIX_USER_IDENTIFIER by lazy {
+        "@[A-Z0-9\\x21-\\x39\\x3B-\\x7F]+:[A-Z0-9.-]+(:[0-9]{2,5})?".toRegex(RegexOption.IGNORE_CASE)
+    }
 
-    private const val BASE_64_ALPHABET = "[0-9A-Za-z/\\+=]+"
-    private const val BASE_64_URL_SAFE_ALPHABET = "[0-9A-Za-z/\\-_]+"
-
-    // regex pattern to find matrix user ids in a string.
-    // See https://matrix.org/docs/spec/appendices#historical-user-ids
-    private const val MATRIX_USER_IDENTIFIER_REGEX = "@[A-Z0-9\\x21-\\x39\\x3B-\\x7F]+$DOMAIN_REGEX"
-    val PATTERN_CONTAIN_MATRIX_USER_IDENTIFIER = MATRIX_USER_IDENTIFIER_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    // regex pattern to find room ids in a string.
-    private const val MATRIX_ROOM_IDENTIFIER_REGEX = "^!.+$DOMAIN_REGEX$"
-    private val PATTERN_CONTAIN_MATRIX_ROOM_IDENTIFIER = MATRIX_ROOM_IDENTIFIER_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    private const val MATRIX_ROOM_IDENTIFIER_DOMAINLESS_REGEX = "!$BASE_64_URL_SAFE_ALPHABET"
-    private val PATTERN_CONTAIN_MATRIX_ROOM_IDENTIFIER_DOMAINLESS = MATRIX_ROOM_IDENTIFIER_DOMAINLESS_REGEX.toRegex()
-
-    // regex pattern to find room aliases in a string.
-    private const val MATRIX_ROOM_ALIAS_REGEX = "#[A-Z0-9._%#@=+-]+$DOMAIN_REGEX"
-    private val PATTERN_CONTAIN_MATRIX_ALIAS = MATRIX_ROOM_ALIAS_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    // regex pattern to find message ids in a string.
-    private const val MATRIX_EVENT_IDENTIFIER_REGEX = "\\$[A-Z0-9]+$DOMAIN_REGEX"
-    private val PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER = MATRIX_EVENT_IDENTIFIER_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    // regex pattern to find message ids in a string.
-    private const val MATRIX_EVENT_IDENTIFIER_V3_REGEX = "\\$$BASE_64_ALPHABET"
-    private val PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER_V3 = MATRIX_EVENT_IDENTIFIER_V3_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    // Ref: https://matrix.org/docs/spec/rooms/v4#event-ids
-    private const val MATRIX_EVENT_IDENTIFIER_V4_REGEX = "\\$$BASE_64_URL_SAFE_ALPHABET"
-    private val PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER_V4 = MATRIX_EVENT_IDENTIFIER_V4_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    // regex pattern to find group ids in a string.
-    private const val MATRIX_GROUP_IDENTIFIER_REGEX = "\\+[A-Z0-9=_\\-./]+$DOMAIN_REGEX"
-    private val PATTERN_CONTAIN_MATRIX_GROUP_IDENTIFIER = MATRIX_GROUP_IDENTIFIER_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    // regex pattern to find permalink with message id.
-    // Android does not support in URL so extract it.
-    private const val PERMALINK_BASE_REGEX = "https://matrix\\.to/#/"
-    private const val APP_BASE_REGEX = "https://[A-Z0-9.-]+\\.[A-Z]{2,}/#/(room|user)/"
+    val MATRIX_PATTERNS by lazy { listOf(PATTERN_CONTAIN_MATRIX_USER_IDENTIFIER) }
+    val ORDER_STRING_REGEX by lazy { "[ -~]+".toRegex() }
     const val SEP_REGEX = "/"
 
-    private val PATTERN_CONTAIN_MATRIX_TO_PERMALINK = PERMALINK_BASE_REGEX.toRegex(RegexOption.IGNORE_CASE)
-    private val PATTERN_CONTAIN_APP_PERMALINK = APP_BASE_REGEX.toRegex(RegexOption.IGNORE_CASE)
-
-    // ascii characters in the range \x20 (space) to \x7E (~)
-    val ORDER_STRING_REGEX = "[ -~]+".toRegex()
-
-    // list of patterns to find some matrix item.
-    val MATRIX_PATTERNS = listOf(
-            PATTERN_CONTAIN_MATRIX_USER_IDENTIFIER,
-            PATTERN_CONTAIN_MATRIX_ALIAS,
-            PATTERN_CONTAIN_MATRIX_ROOM_IDENTIFIER,
-            PATTERN_CONTAIN_MATRIX_ROOM_IDENTIFIER_DOMAINLESS,
-            PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER,
-            PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER_V3,
-            PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER_V4,
-            PATTERN_CONTAIN_MATRIX_GROUP_IDENTIFIER
-    )
-
-    /**
-     * Tells if a string is a valid user Id.
-     *
-     * @param str the string to test
-     * @return true if the string is a valid user id
-     */
-    fun isUserId(str: String?): Boolean {
-        return str != null && str matches PATTERN_CONTAIN_MATRIX_USER_IDENTIFIER
-    }
-
-    /**
-     * Tells if a string is a valid room id.
-     *
-     * @param str the string to test
-     * @return true if the string is a valid room Id
-     */
-    fun isRoomId(str: String?): Boolean {
-        return str != null &&
-                (str matches PATTERN_CONTAIN_MATRIX_ROOM_IDENTIFIER ||
-                        str matches PATTERN_CONTAIN_MATRIX_ROOM_IDENTIFIER_DOMAINLESS)
-    }
-
-    /**
-     * Tells if a string is a valid room alias.
-     *
-     * @param str the string to test
-     * @return true if the string is a valid room alias.
-     */
-    fun isRoomAlias(str: String?): Boolean {
-        return str != null && str matches PATTERN_CONTAIN_MATRIX_ALIAS
-    }
-
-    /**
-     * Tells if a string is a valid event id.
-     *
-     * @param str the string to test
-     * @return true if the string is a valid event id.
-     */
-    fun isEventId(str: String?): Boolean {
-        return str != null &&
-                (str matches PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER ||
-                        str matches PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER_V3 ||
-                        str matches PATTERN_CONTAIN_MATRIX_EVENT_IDENTIFIER_V4)
-    }
-
-    /**
-     * Tells if a string is a valid group id.
-     *
-     * @param str the string to test
-     * @return true if the string is a valid group id.
-     */
-    fun isGroupId(str: String?): Boolean {
-        return str != null && str matches PATTERN_CONTAIN_MATRIX_GROUP_IDENTIFIER
-    }
+    fun isUserId(str: String?): Boolean = str != null && ProgressiveNative.nativeIsUserId(str)
+    fun isRoomId(str: String?): Boolean = str != null && ProgressiveNative.nativeIsRoomId(str)
+    fun isRoomAlias(str: String?): Boolean = str != null && ProgressiveNative.nativeIsRoomAlias(str)
+    fun isEventId(str: String?): Boolean = str != null && ProgressiveNative.nativeIsEventId(str)
+    fun isGroupId(str: String?): Boolean = str != null && ProgressiveNative.nativeIsGroupId(str)
 
     fun isPermalink(str: String?): Boolean {
-        return str != null &&
-                (PATTERN_CONTAIN_MATRIX_TO_PERMALINK.containsMatchIn(str) ||
-                        PATTERN_CONTAIN_APP_PERMALINK.containsMatchIn(str))
+        if (str == null) return false
+        val r1 = Regex("https://matrix\\.to/#/", RegexOption.IGNORE_CASE)
+        val r2 = Regex("https://[A-Z0-9.-]+\\.[A-Z]{2,}/#/(room|user)/", RegexOption.IGNORE_CASE)
+        return r1.containsMatchIn(str) || r2.containsMatchIn(str)
     }
 
-    /**
-     * Extract server name from a matrix id.
-     *
-     * @param matrixId
-     * @return null if not found or if matrixId is null
-     */
     fun extractServerNameFromId(matrixId: String?): String? {
-        return matrixId?.substringAfter(":", missingDelimiterValue = "")?.takeIf { it.isNotEmpty() }
+        return ProgressiveNative.nativeExtractServerNameFromId(matrixId ?: "").takeIf { it.isNotEmpty() }
     }
 
-    /**
-     * Extract user name from a matrix id.
-     *
-     * @param matrixId
-     * @return null if the input is not a valid matrixId
-     */
     fun extractUserNameFromId(matrixId: String): String? {
-        return if (isUserId(matrixId)) {
-            matrixId.removePrefix("@").substringBefore(":", missingDelimiterValue = "")
-        } else {
-            null
-        }
+        return if (isUserId(matrixId)) ProgressiveNative.nativeExtractUserNameFromId(matrixId).takeIf { it.isNotEmpty() } else null
     }
 
-    /**
-     * Orders which are not strings, or do not consist solely of ascii characters in the range \x20 (space) to \x7E (~),
-     * or consist of more than 50 characters, are forbidden and the field should be ignored if received.
-     */
     fun isValidOrderString(order: String?): Boolean {
-        return order != null && order.length < 50 && order matches ORDER_STRING_REGEX
+        return order != null && order.length < 50 && ProgressiveNative.nativeIsValidOrderString(order)
     }
 
     fun candidateAliasFromRoomName(roomName: String, domain: String): String {
-        return roomName.lowercase()
-                .replaceSpaceChars(replacement = "_")
-                .removeInvalidRoomNameChars()
-                .take(MatrixConstants.maxAliasLocalPartLength(domain))
+        return ProgressiveNative.nativeCandidateAliasFromRoomName(roomName, domain)
     }
 
-    /**
-     * Return the domain form a userId.
-     * Examples:
-     * - "@alice:domain.org".getDomain() will return "domain.org"
-     * - "@bob:domain.org:3455".getDomain() will return "domain.org:3455"
-     */
     fun String.getServerName(): String {
         if (BuildConfig.DEBUG && !isUserId(this)) {
-            // They are some invalid userId localpart in the wild, but the domain part should be there anyway
             Timber.w("Not a valid user ID: $this")
         }
         return substringAfter(":")
