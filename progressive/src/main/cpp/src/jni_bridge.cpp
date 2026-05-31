@@ -4617,6 +4617,15 @@ JNI_FUNC(jstring, nativeBase58Encode)(JNIEnv* env, jclass, jbyteArray jData) {
     auto r = progressive::base58Encode(input);
     return env->NewStringUTF(r.c_str());
 }
+
+JNI_FUNC(jbyteArray, nativeBase58Decode)(JNIEnv* env, jclass, jstring jInput) {
+    std::string input(env->GetStringUTFChars(jInput, nullptr));
+    env->ReleaseStringUTFChars(jInput, input.c_str());
+    auto decoded = progressive::base58Decode(input);
+    jbyteArray result = env->NewByteArray(decoded.size());
+    env->SetByteArrayRegion(result, 0, decoded.size(), reinterpret_cast<const jbyte*>(decoded.data()));
+    return result;
+}
 JNI_FUNC(jboolean, nativeTlsBridgeAvailable)(JNIEnv* env, jclass) {
     return progressive::tlsBridgeAvailable() ? JNI_TRUE : JNI_FALSE;
 }

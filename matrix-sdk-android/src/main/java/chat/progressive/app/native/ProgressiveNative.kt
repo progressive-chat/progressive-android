@@ -42,4 +42,8 @@ object ProgressiveNative {
     @JvmStatic external fun nativeGetRetryAfterMs(errorJson: String): Long
     @JvmStatic external fun nativeGetAllErrorCodes(): String
     @JvmStatic external fun nativeIsPasswordError(errorCode: String): Boolean
+
+    // Base58
+    @JvmStatic external fun nativeBase58Encode(data: ByteArray): String
+    @JvmStatic external fun nativeBase58Decode(input: String): ByteArray
 }
