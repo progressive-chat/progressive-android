@@ -4658,6 +4658,23 @@ JNI_FUNC(jstring, nativeReplaceSpaceChars)(JNIEnv* env, jclass, jstring jInput, 
 JNI_FUNC(jstring, nativeExtractUsefulTextFromHtmlReply)(JNIEnv* env, jclass, jstring jHtml) {
     return env->NewStringUTF(progressive::extractUsefulTextFromHtmlReply(jStr(env, jHtml)).c_str());
 }
+
+// ---- String order JNI ----
+
+JNI_FUNC(jstring, nativeStringAverage)(JNIEnv* env, jclass, jstring jLeft, jstring jRight) {
+    return env->NewStringUTF(progressive::stringAverage(jStr(env, jLeft), jStr(env, jRight)).c_str());
+}
+
+JNI_FUNC(jstring, nativeStringMidPoints)(JNIEnv* env, jclass, jstring jLeft, jstring jRight, jint jCount) {
+    auto result = progressive::stringMidPoints(jStr(env, jLeft), jStr(env, jRight), jCount);
+    std::string json = "[";
+    for (size_t i = 0; i < result.size(); i++) {
+        if (i > 0) json += ",";
+        json += "\"" + result[i] + "\"";
+    }
+    json += "]";
+    return env->NewStringUTF(json.c_str());
+}
 JNI_FUNC(jboolean, nativeTlsBridgeAvailable)(JNIEnv* env, jclass) {
     return progressive::tlsBridgeAvailable() ? JNI_TRUE : JNI_FALSE;
 }

@@ -61,4 +61,8 @@ object ProgressiveNative {
     @JvmStatic external fun nativeRemoveInvalidRoomNameChars(name: String): String
     @JvmStatic external fun nativeReplaceSpaceChars(input: String, replacement: String): String
     @JvmStatic external fun nativeExtractUsefulTextFromHtmlReply(html: String): String
+
+    // String ordering
+    @JvmStatic external fun nativeStringAverage(left: String, right: String): String
+    @JvmStatic external fun nativeStringMidPoints(left: String, right: String, count: Int): String
 }
