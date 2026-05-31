@@ -18,8 +18,6 @@ package org.matrix.android.sdk.api
 
 import chat.progressive.app.native.ProgressiveNative
 import org.matrix.android.sdk.BuildConfig
-import org.matrix.android.sdk.internal.util.removeInvalidRoomNameChars
-import org.matrix.android.sdk.internal.util.replaceSpaceChars
 import timber.log.Timber
 
 /**
