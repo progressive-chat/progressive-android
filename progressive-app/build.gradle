@@ -310,6 +310,9 @@ android {
         nightly {
             java.srcDirs += "src/release/java"
         }
+        fdroidRelease {
+            java.srcDirs += "src/release/java"
+        }
     }
 
     flavorDimensions = ["store"]
@@ -333,7 +336,6 @@ android {
             versionName "${versionMajor}.${versionMinor}.${versionPatch}${getFdroidVersionSuffix()}"
             buildConfigField "String", "SHORT_FLAVOR_DESCRIPTION", "\"F\""
             buildConfigField "String", "FLAVOR_DESCRIPTION", "\"FDroid\""
-            java.srcDirs += "src/release/java"
         }
 
     }
