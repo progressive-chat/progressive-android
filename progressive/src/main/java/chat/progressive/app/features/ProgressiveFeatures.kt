@@ -10,6 +10,7 @@ package chat.progressive.app.features
 import chat.progressive.app.config.Config
 import chat.progressive.app.config.OnboardingVariant
 import chat.progressive.app.features.settings.ProgressiveBasePreferences
+import javax.inject.Inject
 
 interface ProgressiveFeatures {
 
@@ -35,7 +36,7 @@ interface ProgressiveFeatures {
     fun isUnverifiedSessionsAlertEnabled(): Boolean
 }
 
-class DefaultProgressiveFeatures : ProgressiveFeatures {
+class DefaultProgressiveFeatures @Inject constructor() : ProgressiveFeatures {
     override fun onboardingVariant() = Config.ONBOARDING_VARIANT
     override fun isOnboardingAlreadyHaveAccountSplashEnabled() = true
     override fun isOnboardingSplashCarouselEnabled() = true

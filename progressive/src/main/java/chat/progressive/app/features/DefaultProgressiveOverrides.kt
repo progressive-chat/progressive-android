@@ -7,6 +7,7 @@
 
 package chat.progressive.app.features
 
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
@@ -21,7 +22,7 @@ data class HomeserverCapabilitiesOverride(
         val canChangeAvatar: Boolean?
 )
 
-class DefaultProgressiveOverrides : ProgressiveOverrides {
+class DefaultProgressiveOverrides @Inject constructor() : ProgressiveOverrides {
     override val forceDialPad = flowOf(false)
     override val forceLoginFallback = flowOf(false)
     override val forceHomeserverCapabilities: Flow<HomeserverCapabilitiesOverride>? = null

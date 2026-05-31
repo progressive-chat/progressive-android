@@ -7,6 +7,7 @@
 
 package chat.progressive.app.core.di
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,15 +21,17 @@ import chat.progressive.app.features.ProgressiveOverrides
 
 @InstallIn(SingletonComponent::class)
 @Module
-object FeaturesModule {
+interface FeaturesModule {
 
-    @Provides
-    fun providesFeatures() = DefaultProgressiveFeatures()
+    @Binds
+    fun bindFeatures(defaultFeatures: DefaultProgressiveFeatures): ProgressiveFeatures
 
-    @Provides
-    fun providesOverrides() = DefaultProgressiveOverrides()
+    @Binds
+    fun bindOverrides(defaultOverrides: DefaultProgressiveOverrides): ProgressiveOverrides
 
-    @Provides
-    @NamedGlobalScope
-    fun providesGlobalScope(): CoroutineScope = CoroutineScope(SupervisorJob())
+    companion object {
+        @Provides
+        @NamedGlobalScope
+        fun providesGlobalScope(): CoroutineScope = CoroutineScope(SupervisorJob())
+    }
 }
