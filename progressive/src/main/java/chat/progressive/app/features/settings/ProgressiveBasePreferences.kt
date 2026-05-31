@@ -1273,5 +1273,9 @@ class ProgressiveBasePreferences @Inject constructor(
     fun setSvgDrawEnabled(enabled: Boolean) {
         defaultPrefs.edit().putBoolean(SETTINGS_LABS_SVG_DRAW_KEY, enabled).apply()
     }
+
+    fun isRichTextEditorEnabled(): Boolean = true
+    fun isVoiceBroadcastEnabled(): Boolean = true
+    fun isMemoryLeakAnalysisEnabled(): Boolean = false
 }
 
