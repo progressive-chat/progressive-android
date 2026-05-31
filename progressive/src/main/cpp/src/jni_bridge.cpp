@@ -4631,6 +4631,33 @@ JNI_FUNC(jstring, nativeCanonicalizeJson)(JNIEnv* env, jclass, jstring jJson) {
     std::string result = progressive::canonicalizeJson(jStr(env, jJson));
     return env->NewStringUTF(result.c_str());
 }
+
+// ---- Graph utils JNI wrappers ----
+
+JNI_FUNC(jboolean, nativeIsMimeTypeImage)(JNIEnv* env, jclass, jstring jMime) {
+    return progressive::isMimeTypeImage(jStr(env, jMime)) ? JNI_TRUE : JNI_FALSE;
+}
+JNI_FUNC(jboolean, nativeIsMimeTypeVideo)(JNIEnv* env, jclass, jstring jMime) {
+    return progressive::isMimeTypeVideo(jStr(env, jMime)) ? JNI_TRUE : JNI_FALSE;
+}
+JNI_FUNC(jboolean, nativeIsMimeTypeAudio)(JNIEnv* env, jclass, jstring jMime) {
+    return progressive::isMimeTypeAudio(jStr(env, jMime)) ? JNI_TRUE : JNI_FALSE;
+}
+JNI_FUNC(jstring, nativeNormalizeMimeType)(JNIEnv* env, jclass, jstring jMime) {
+    return env->NewStringUTF(progressive::normalizeMimeType(jStr(env, jMime)).c_str());
+}
+JNI_FUNC(jstring, nativeUnescapeHtml)(JNIEnv* env, jclass, jstring jHtml) {
+    return env->NewStringUTF(progressive::unescapeHtml(jStr(env, jHtml)).c_str());
+}
+JNI_FUNC(jstring, nativeRemoveInvalidRoomNameChars)(JNIEnv* env, jclass, jstring jName) {
+    return env->NewStringUTF(progressive::removeInvalidRoomNameChars(jStr(env, jName)).c_str());
+}
+JNI_FUNC(jstring, nativeReplaceSpaceChars)(JNIEnv* env, jclass, jstring jInput, jstring jReplacement) {
+    return env->NewStringUTF(progressive::replaceSpaceChars(jStr(env, jInput), jStr(env, jReplacement)).c_str());
+}
+JNI_FUNC(jstring, nativeExtractUsefulTextFromHtmlReply)(JNIEnv* env, jclass, jstring jHtml) {
+    return env->NewStringUTF(progressive::extractUsefulTextFromHtmlReply(jStr(env, jHtml)).c_str());
+}
 JNI_FUNC(jboolean, nativeTlsBridgeAvailable)(JNIEnv* env, jclass) {
     return progressive::tlsBridgeAvailable() ? JNI_TRUE : JNI_FALSE;
 }

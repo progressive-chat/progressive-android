@@ -51,4 +51,14 @@ object ProgressiveNative {
     @JvmStatic external fun nativeExtractUsefulTextFromReply(repliedBody: String): String
     @JvmStatic external fun nativeFormatSpoilerTextFromHtml(html: String): String
     @JvmStatic external fun nativeCanonicalizeJson(json: String): String
+
+    // MIME / Graph utils
+    @JvmStatic external fun nativeIsMimeTypeImage(mime: String): Boolean
+    @JvmStatic external fun nativeIsMimeTypeVideo(mime: String): Boolean
+    @JvmStatic external fun nativeIsMimeTypeAudio(mime: String): Boolean
+    @JvmStatic external fun nativeNormalizeMimeType(mime: String): String
+    @JvmStatic external fun nativeUnescapeHtml(html: String): String
+    @JvmStatic external fun nativeRemoveInvalidRoomNameChars(name: String): String
+    @JvmStatic external fun nativeReplaceSpaceChars(input: String, replacement: String): String
+    @JvmStatic external fun nativeExtractUsefulTextFromHtmlReply(html: String): String
 }
