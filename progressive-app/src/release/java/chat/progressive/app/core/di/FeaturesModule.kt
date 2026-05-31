@@ -11,6 +11,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import chat.progressive.app.features.DefaultProgressiveFeatures
 import chat.progressive.app.features.DefaultProgressiveOverrides
 import chat.progressive.app.features.ProgressiveFeatures
@@ -25,4 +27,8 @@ object FeaturesModule {
 
     @Provides
     fun providesOverrides() = DefaultProgressiveOverrides()
+
+    @Provides
+    @NamedGlobalScope
+    fun providesGlobalScope(): CoroutineScope = CoroutineScope(SupervisorJob())
 }
