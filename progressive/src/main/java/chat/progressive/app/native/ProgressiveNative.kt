@@ -51,4 +51,8 @@ object ProgressiveNative {
     @JvmStatic external fun nativeNotifGetMode(): Int
     @JvmStatic external fun nativeFormatCountToShortDecimal(value: Int): String
     @JvmStatic external fun nativeParseSlashCommand(text: String, formatted: String?, isThread: Boolean, devMode: Boolean): String
+    @JvmStatic external fun nativeFormatNoticeEvent(eventJson: String, senderName: String, isDm: Boolean, isSentByMe: Boolean, currentUserId: String): String
+    @JvmStatic external fun nativeFormatRedactedEvent(eventJson: String, senderName: String): String
+    @JvmStatic external fun nativeFormatDisplayableEvent(eventJson: String, senderName: String, isDm: Boolean, appendAuthor: Boolean): String
+    @JvmStatic external fun nativeFormatThreadSummary(eventJson: String, latestEdition: String): String
 }

@@ -51,6 +51,7 @@
 #include "progressive/scheduled_edit.hpp"
 #include "progressive/svg_draw.hpp"
 #include "progressive/command_parser.hpp"
+#include "progressive/notice_event_formatter.hpp"
 #include "progressive/preferences.hpp"
 #include "progressive/profile_swiper.hpp"
 #include "progressive/rainbow.hpp"
@@ -6434,6 +6435,41 @@ JNI_FUNC(jstring, nativeParseSlashCommand)(JNIEnv* env, jclass,
     std::string formatted = jStr(env, jFormatted);
     std::string result = progressive::parseSlashCommand(text, formatted,
                                                         jIsThread, jDevMode);
+    return env->NewStringUTF(result.c_str());
+}
+
+// ---- Notice Event Formatter JNI wrappers ----
+
+JNI_FUNC(jstring, nativeFormatNoticeEvent)(JNIEnv* env, jclass,
+        jstring jEventJson, jstring jSenderName, jboolean jIsDm,
+        jboolean jIsSentByMe, jstring jCurrentUserId) {
+    std::string result = progressive::formatNoticeEvent(
+        jStr(env, jEventJson),
+        jStr(env, jSenderName),
+        jIsDm,
+        jIsSentByMe,
+        jStr(env, jCurrentUserId));
+    return env->NewStringUTF(result.c_str());
+}
+
+JNI_FUNC(jstring, nativeFormatRedactedEvent)(JNIEnv* env, jclass,
+        jstring jEventJson, jstring jSenderName) {
+    std::string result = progressive::formatRedactedEvent(
+        jStr(env, jEventJson), jStr(env, jSenderName));
+    return env->NewStringUTF(result.c_str());
+}
+
+JNI_FUNC(jstring, nativeFormatDisplayableEvent)(JNIEnv* env, jclass,
+        jstring jEventJson, jstring jSenderName, jboolean jIsDm, jboolean jAppendAuthor) {
+    std::string result = progressive::formatDisplayableEvent(
+        jStr(env, jEventJson), jStr(env, jSenderName), jIsDm, jAppendAuthor);
+    return env->NewStringUTF(result.c_str());
+}
+
+JNI_FUNC(jstring, nativeFormatThreadSummary)(JNIEnv* env, jclass,
+        jstring jEventJson, jstring jLatestEdition) {
+    std::string result = progressive::formatThreadSummary(
+        jStr(env, jEventJson), jStr(env, jLatestEdition));
     return env->NewStringUTF(result.c_str());
 }
 

@@ -404,6 +404,7 @@ add_library(
     src/media_tools.cpp
     src/user_profiles.cpp
     src/command_parser.cpp
+    src/notice_event_formatter.cpp
     src/jni_bridge.cpp
     src/eventdb.cpp
     src/sync_status_utils.cpp
