@@ -46,4 +46,9 @@ object ProgressiveNative {
     // Base58
     @JvmStatic external fun nativeBase58Encode(data: ByteArray): String
     @JvmStatic external fun nativeBase58Decode(input: String): ByteArray
+
+    // Text utilities
+    @JvmStatic external fun nativeExtractUsefulTextFromReply(repliedBody: String): String
+    @JvmStatic external fun nativeFormatSpoilerTextFromHtml(html: String): String
+    @JvmStatic external fun nativeCanonicalizeJson(json: String): String
 }

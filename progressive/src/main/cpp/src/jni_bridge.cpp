@@ -4626,6 +4626,11 @@ JNI_FUNC(jbyteArray, nativeBase58Decode)(JNIEnv* env, jclass, jstring jInput) {
     env->SetByteArrayRegion(result, 0, decoded.size(), reinterpret_cast<const jbyte*>(decoded.data()));
     return result;
 }
+
+JNI_FUNC(jstring, nativeCanonicalizeJson)(JNIEnv* env, jclass, jstring jJson) {
+    std::string result = progressive::canonicalizeJson(jStr(env, jJson));
+    return env->NewStringUTF(result.c_str());
+}
 JNI_FUNC(jboolean, nativeTlsBridgeAvailable)(JNIEnv* env, jclass) {
     return progressive::tlsBridgeAvailable() ? JNI_TRUE : JNI_FALSE;
 }
