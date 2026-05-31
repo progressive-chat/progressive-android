@@ -21,7 +21,7 @@ interface LocaleProvider {
 
 class DefaultLocaleProvider @Inject constructor(private val resources: Resources) : LocaleProvider {
 
-    fun current() = ConfigurationCompat.getLocales(resources.configuration).get(0) ?: Locale.getDefault()
+    override fun current() = ConfigurationCompat.getLocales(resources.configuration).get(0) ?: Locale.getDefault()
 }
 
 fun LocaleProvider.isEnglishSpeaking() = current().language.startsWith("en")

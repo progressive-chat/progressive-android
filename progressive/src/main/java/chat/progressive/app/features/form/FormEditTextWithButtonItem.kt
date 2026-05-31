@@ -65,7 +65,7 @@ abstract class FormEditTextWithButtonItem : ProgressiveEpoxyModel<FormEditTextWi
         holder.textInputButton.onClick(onButtonClicked)
     }
 
-    fun shouldSaveViewState() = false
+    override fun shouldSaveViewState() = false
 
     override fun unbind(holder: Holder) {
         super.unbind(holder)

@@ -42,7 +42,7 @@ abstract class AbsMessageItem<H : AbsMessageItem.Holder>(
     override val baseAttributes: AbsBaseMessageItem.Attributes
         get() = attributes
 
-    fun isCacheable() = attributes.informationData.sendStateDecoration != SendStateDecoration.SENT
+    override fun isCacheable() = attributes.informationData.sendStateDecoration != SendStateDecoration.SENT
 
     @EpoxyAttribute
     lateinit var attributes: Attributes

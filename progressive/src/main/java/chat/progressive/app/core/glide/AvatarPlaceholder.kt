@@ -67,5 +67,5 @@ class AvatarPlaceholderDataFetcher(context: Context, private val data: AvatarPla
         return Drawable::class.java
     }
 
-    fun getDataSource() = DataSource.LOCAL
+    override fun getDataSource() = DataSource.LOCAL
 }

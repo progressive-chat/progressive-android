@@ -34,7 +34,7 @@ class RoomMemberProfileActivity : ProgressiveActivity<ActivitySimpleBinding>() {
 
     private val requireActiveMembershipViewModel: RequireActiveMembershipViewModel by viewModel()
 
-    fun getBinding() = ActivitySimpleBinding.inflate(layoutInflater)
+    override fun getBinding() = ActivitySimpleBinding.inflate(layoutInflater)
 
     override fun getCoordinatorLayout() = views.coordinatorLayout
 

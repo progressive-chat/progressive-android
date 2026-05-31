@@ -24,5 +24,5 @@ class RoomActivePollsFragment : RoomPollsListFragment() {
         }
     }
 
-    fun getRoomPollsType() = RoomPollsType.ACTIVE
+    override fun getRoomPollsType() = RoomPollsType.ACTIVE
 }

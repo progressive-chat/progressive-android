@@ -23,7 +23,7 @@ class CheckableConstraintLayout : ConstraintLayout, Checkable {
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    fun isChecked() = mChecked
+    override fun isChecked() = mChecked
 
     override fun setChecked(b: Boolean) {
         if (b != mChecked) {

@@ -170,30 +170,6 @@ std::vector<std::string> extractUrls(const std::string& html) {
     return urls;
 }
 
-std::string stripHtmlTags(const std::string& html) {
-    std::string result;
-    bool inTag = false;
-    for (char c : html) {
-        if (c == '<') inTag = true;
-        else if (c == '>') inTag = false;
-        else if (!inTag) result += c;
-    }
-
-    // Normalize whitespace
-    std::string clean;
-    bool wasSpace = false;
-    for (char c : result) {
-        if (std::isspace(static_cast<unsigned char>(c))) {
-            if (!wasSpace) clean += ' ';
-            wasSpace = true;
-        } else {
-            clean += c;
-            wasSpace = false;
-        }
-    }
-    return clean;
-}
-
 std::string truncateDescription(const std::string& text, size_t maxLen) {
     if (text.size() <= maxLen) return text;
 

@@ -403,6 +403,7 @@ add_library(
     src/notif_handler.cpp
     src/media_tools.cpp
     src/user_profiles.cpp
+    src/command_parser.cpp
     src/jni_bridge.cpp
     src/eventdb.cpp
     src/sync_status_utils.cpp

@@ -24,5 +24,5 @@ class RoomEndedPollsFragment : RoomPollsListFragment() {
         }
     }
 
-    fun getRoomPollsType() = RoomPollsType.ENDED
+    override fun getRoomPollsType() = RoomPollsType.ENDED
 }

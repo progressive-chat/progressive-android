@@ -15,9 +15,9 @@ class TimelineEventDiffUtilCallback(
         private val newList: List<TimelineEvent>
 ) : DiffUtil.Callback() {
 
-    fun getOldListSize() = oldList.size
+    override fun getOldListSize() = oldList.size
 
-    fun getNewListSize() = newList.size
+    override fun getNewListSize() = newList.size
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldItem = oldList[oldItemPosition]

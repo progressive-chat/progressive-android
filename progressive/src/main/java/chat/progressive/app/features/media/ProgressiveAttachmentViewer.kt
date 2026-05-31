@@ -168,7 +168,7 @@ class ProgressiveAttachmentViewer : AttachmentViewerActivity(), AttachmentIntera
         super.onBackPressed()
     }
 
-    fun shouldAnimateDismiss() = currentPosition != initialIndex
+    override fun shouldAnimateDismiss() = currentPosition != initialIndex
 
     override fun animateClose() {
         if (currentPosition == initialIndex) {

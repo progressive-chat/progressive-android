@@ -114,7 +114,7 @@ class FontScalePreferencesImpl @Inject constructor(
 
     override fun getAvailableScales(): List<FontScaleValue> = fontScaleValues
 
-    fun getUseSystemScale() = preferences.getBoolean(APPLICATION_USE_SYSTEM_FONT_SCALE_KEY, true)
+    override fun getUseSystemScale() = preferences.getBoolean(APPLICATION_USE_SYSTEM_FONT_SCALE_KEY, true)
 
     override fun setUseSystemScale(useSystem: Boolean) {
         preferences

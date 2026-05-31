@@ -50,6 +50,8 @@
 #include "progressive/lightweight_call.hpp"
 #include "progressive/scheduled_edit.hpp"
 #include "progressive/svg_draw.hpp"
+#include "progressive/command_parser.hpp"
+#include "progressive/preferences.hpp"
 #include "progressive/profile_swiper.hpp"
 #include "progressive/rainbow.hpp"
 #include "progressive/text_formats.hpp"
@@ -6331,6 +6333,7 @@ JNI_FUNC(jstring, nativeEnsureProtocol)(JNIEnv* env, jclass, jstring jUrl) {
     std::string url(env->GetStringUTFChars(jUrl, nullptr));
     env->ReleaseStringUTFChars(jUrl, url.c_str());
     return env->NewStringUTF(progressive::ensureProtocol(url).c_str());
+}
 
 // ---- Preferences Engine ----
 JNI_FUNC(jboolean, nativePrefGetBool)(JNIEnv* env, jclass, jstring jKey, jboolean jDef) {
@@ -6394,7 +6397,6 @@ JNI_FUNC(void, nativePrefImport)(JNIEnv* env, jclass, jstring jJson) {
     env->ReleaseStringUTFChars(jJson, json.c_str());
     progressive::Preferences::instance().load(json);
 }
-}
 
 JNI_FUNC(jstring, nativeEnsureTrailingSlash)(JNIEnv* env, jclass, jstring jUrl) {
     std::string url(env->GetStringUTFChars(jUrl, nullptr));
@@ -6402,11 +6404,6 @@ JNI_FUNC(jstring, nativeEnsureTrailingSlash)(JNIEnv* env, jclass, jstring jUrl) 
     return env->NewStringUTF(progressive::ensureTrailingSlash(url).c_str());
 }
 
-JNI_FUNC(jstring, nativeStripHtmlTags)(JNIEnv* env, jclass, jstring jHtml) {
-    std::string html(env->GetStringUTFChars(jHtml, nullptr));
-    env->ReleaseStringUTFChars(jHtml, html.c_str());
-    return env->NewStringUTF(progressive::stripHtmlTags(html).c_str());
-}
 } // extern "C"
 
 JNI_FUNC(jstring, nativeFormatCountToShortDecimal)(JNIEnv* env, jclass, jint jValue) {
@@ -6426,6 +6423,17 @@ JNI_FUNC(jstring, nativeFromPunycode)(JNIEnv* env, jclass, jstring jDomain) {
     const char* s = env->GetStringUTFChars(jDomain, nullptr);
     std::string result = progressive::fromPunycode(std::string(s));
     env->ReleaseStringUTFChars(jDomain, s);
+    return env->NewStringUTF(result.c_str());
+}
+
+// ---- Command Parser JNI wrapper ----
+
+JNI_FUNC(jstring, nativeParseSlashCommand)(JNIEnv* env, jclass,
+        jstring jText, jstring jFormatted, jboolean jIsThread, jboolean jDevMode) {
+    std::string text = jStr(env, jText);
+    std::string formatted = jStr(env, jFormatted);
+    std::string result = progressive::parseSlashCommand(text, formatted,
+                                                        jIsThread, jDevMode);
     return env->NewStringUTF(result.c_str());
 }
 

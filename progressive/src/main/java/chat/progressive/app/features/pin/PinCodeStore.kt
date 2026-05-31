@@ -80,7 +80,7 @@ class SharedPrefPinCodeStore @Inject constructor(private val sharedPreferences: 
         return withContext(Dispatchers.IO) { sharedPreferences.contains(ENCODED_PIN_CODE_KEY) }
     }
 
-    fun getRemainingPinCodeAttemptsNumber() = sharedPreferences.getInt(REMAINING_PIN_CODE_ATTEMPTS_KEY, MAX_PIN_CODE_ATTEMPTS_NUMBER_BEFORE_LOGOUT)
+    override fun getRemainingPinCodeAttemptsNumber() = sharedPreferences.getInt(REMAINING_PIN_CODE_ATTEMPTS_KEY, MAX_PIN_CODE_ATTEMPTS_NUMBER_BEFORE_LOGOUT)
 
     override fun onWrongPin(): Int {
         val remaining = getRemainingPinCodeAttemptsNumber() - 1

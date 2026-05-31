@@ -8,451 +8,135 @@
 package chat.progressive.app.features.command
 
 import chat.progressive.app.core.extensions.isMsisdn
-import chat.progressive.app.core.extensions.orEmpty
 import chat.progressive.app.features.home.room.detail.ChatEffect
 import chat.progressive.app.features.settings.ProgressiveBasePreferences
+import chat.progressive.app.native.ProgressiveNative
+import org.json.JSONArray
+import org.json.JSONObject
 import org.matrix.android.sdk.api.MatrixPatterns
-import org.matrix.android.sdk.api.MatrixUrls.isMxcUrl
-import org.matrix.android.sdk.api.extensions.isEmail
 import org.matrix.android.sdk.api.session.identity.ThreePid
-import timber.log.Timber
 import javax.inject.Inject
 
 class CommandParser @Inject constructor(
         private val progressivePreferences: ProgressiveBasePreferences
 ) {
-
     /**
      * Convert the text message into a Slash command.
-     *
-     * @param textMessage the text message in plain text
-     * @param formattedMessage the text messaged in HTML format
-     * @param isInThreadTimeline true if the user is currently typing in a thread
-     * @return a parsed slash command (ok or error)
+     * Parsing logic is in C++ (command_parser.cpp).
      */
-    @Suppress("NAME_SHADOWING")
     fun parseSlashCommand(textMessage: CharSequence, formattedMessage: String?, isInThreadTimeline: Boolean): ParsedCommand {
-        // check if it has the Slash marker
-        val message = formattedMessage ?: textMessage
-        return if (!message.startsWith("/")) {
-            ParsedCommand.ErrorNotACommand
-        } else {
-            // "/" only
-            if (message.length == 1) {
-                return ParsedCommand.ErrorEmptySlashCommand
+        val json = ProgressiveNative.nativeParseSlashCommand(
+            text = textMessage.toString(),
+            formatted = formattedMessage ?: "",
+            isThread = isInThreadTimeline,
+            devMode = progressivePreferences.developerMode()
+        )
+        val obj = JSONObject(json)
+        return when (obj.getString("type")) {
+            "error_not_a_command" -> ParsedCommand.ErrorNotACommand
+            "error_empty_slash_command" -> ParsedCommand.ErrorEmptySlashCommand
+            "error_unknown" -> ParsedCommand.ErrorUnknownSlashCommand(obj.getString("cmd"))
+            "error_syntax" -> {
+                val cmdName = obj.getString("cmd")
+                ParsedCommand.ErrorSyntax(findCommandByName(cmdName))
             }
-
-            // Exclude "//"
-            if ("/" == message.substring(1, 2)) {
-                return ParsedCommand.ErrorNotACommand
+            "error_threads" -> {
+                val cmdName = obj.getString("cmd")
+                ParsedCommand.ErrorCommandNotSupportedInThreads(findCommandByName(cmdName))
             }
-
-            val (messageParts, message) = extractMessage(message.toString()) ?: return ParsedCommand.ErrorEmptySlashCommand
-            val slashCommand = messageParts.first()
-
-            getNotSupportedByThreads(isInThreadTimeline, slashCommand)?.let {
-                return ParsedCommand.ErrorCommandNotSupportedInThreads(it)
+            "send_plain_text" -> ParsedCommand.SendPlainText(obj.getString("msg"))
+            "send_formatted_text" -> ParsedCommand.SendFormattedText(obj.getString("msg"), obj.getString("fmt"))
+            "send_emote" -> ParsedCommand.SendEmote(obj.getString("msg"))
+            "send_rainbow" -> ParsedCommand.SendRainbow(obj.getString("msg"))
+            "send_rainbow_emote" -> ParsedCommand.SendRainbowEmote(obj.getString("msg"))
+            "send_spoiler" -> ParsedCommand.SendSpoiler(obj.getString("msg"))
+            "send_shrug" -> ParsedCommand.SendShrug(obj.optString("msg", ""))
+            "send_lenny" -> ParsedCommand.SendLenny(obj.optString("msg", ""))
+            "send_tableflip" -> ParsedCommand.SendTableFlip(obj.optString("msg", ""))
+            "send_chat_effect" -> {
+                val effect = when (obj.getString("effect")) {
+                    "CONFETTI" -> ChatEffect.CONFETTI
+                    "SNOWFALL" -> ChatEffect.SNOWFALL
+                    else -> ChatEffect.CONFETTI
+                }
+                ParsedCommand.SendChatEffect(effect, obj.optString("msg", ""))
             }
-
-            when {
-                Command.PLAIN.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        if (formattedMessage != null) {
-                            val trimmedPlainTextMessage = extractMessage(textMessage.toString())?.second.orEmpty()
-                            ParsedCommand.SendFormattedText(message = trimmedPlainTextMessage, formattedMessage = message)
-                        } else {
-                            ParsedCommand.SendPlainText(message = message)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.PLAIN)
-                    }
-                }
-                Command.CHANGE_DISPLAY_NAME.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.ChangeDisplayName(displayName = message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.CHANGE_DISPLAY_NAME)
-                    }
-                }
-                Command.CHANGE_DISPLAY_NAME_FOR_ROOM.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.ChangeDisplayNameForRoom(displayName = message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.CHANGE_DISPLAY_NAME_FOR_ROOM)
-                    }
-                }
-                Command.ROOM_AVATAR.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        val url = messageParts[1]
-
-                        if (url.isMxcUrl()) {
-                            ParsedCommand.ChangeRoomAvatar(url)
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.ROOM_AVATAR)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.ROOM_AVATAR)
-                    }
-                }
-                Command.CHANGE_AVATAR_FOR_ROOM.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        val url = messageParts[1]
-
-                        if (url.isMxcUrl()) {
-                            ParsedCommand.ChangeAvatarForRoom(url)
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.CHANGE_AVATAR_FOR_ROOM)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.CHANGE_AVATAR_FOR_ROOM)
-                    }
-                }
-                Command.TOPIC.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.ChangeTopic(topic = message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.TOPIC)
-                    }
-                }
-                Command.EMOTE.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.SendEmote(message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.EMOTE)
-                    }
-                }
-                Command.RAINBOW.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.SendRainbow(message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.RAINBOW)
-                    }
-                }
-                Command.RAINBOW_EMOTE.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.SendRainbowEmote(message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.RAINBOW_EMOTE)
-                    }
-                }
-                Command.JOIN_ROOM.matches(slashCommand) -> {
-                    if (messageParts.size >= 2) {
-                        val roomAlias = messageParts[1]
-
-                        if (roomAlias.isNotEmpty()) {
-                            ParsedCommand.JoinRoom(
-                                    roomAlias,
-                                    trimParts(textMessage, messageParts.take(2))
-                            )
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.JOIN_ROOM)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.JOIN_ROOM)
-                    }
-                }
-                Command.PART.matches(slashCommand) -> {
-                    when (messageParts.size) {
-                        1 -> ParsedCommand.PartRoom(null)
-                        2 -> ParsedCommand.PartRoom(messageParts[1])
-                        else -> ParsedCommand.ErrorSyntax(Command.PART)
-                    }
-                }
-                Command.ROOM_NAME.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.ChangeRoomName(name = message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.ROOM_NAME)
-                    }
-                }
-                Command.INVITE.matches(slashCommand) -> {
-                    if (messageParts.size >= 2) {
-                        val userId = messageParts[1]
-
-                        when {
-                            MatrixPatterns.isUserId(userId) -> {
-                                ParsedCommand.Invite(
-                                        userId,
-                                        trimParts(textMessage, messageParts.take(2))
-                                )
-                            }
-                            userId.isEmail() -> {
-                                ParsedCommand.Invite3Pid(ThreePid.Email(userId))
-                            }
-                            userId.isMsisdn() -> {
-                                ParsedCommand.Invite3Pid(ThreePid.Msisdn(userId))
-                            }
-                            else -> {
-                                ParsedCommand.ErrorSyntax(Command.INVITE)
-                            }
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.INVITE)
-                    }
-                }
-                Command.REMOVE_USER.matches(slashCommand) -> {
-                    if (messageParts.size >= 2) {
-                        val userId = messageParts[1]
-
-                        if (MatrixPatterns.isUserId(userId)) {
-                            ParsedCommand.RemoveUser(
-                                    userId,
-                                    trimParts(textMessage, messageParts.take(2))
-                            )
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.REMOVE_USER)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.REMOVE_USER)
-                    }
-                }
-                Command.BAN_USER.matches(slashCommand) -> {
-                    if (messageParts.size >= 2) {
-                        val userId = messageParts[1]
-
-                        if (MatrixPatterns.isUserId(userId)) {
-                            ParsedCommand.BanUser(
-                                    userId,
-                                    trimParts(textMessage, messageParts.take(2))
-                            )
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.BAN_USER)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.BAN_USER)
-                    }
-                }
-                Command.UNBAN_USER.matches(slashCommand) -> {
-                    if (messageParts.size >= 2) {
-                        val userId = messageParts[1]
-
-                        if (MatrixPatterns.isUserId(userId)) {
-                            ParsedCommand.UnbanUser(
-                                    userId,
-                                    trimParts(textMessage, messageParts.take(2))
-                            )
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.UNBAN_USER)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.UNBAN_USER)
-                    }
-                }
-                Command.IGNORE_USER.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        val userId = messageParts[1]
-
-                        if (MatrixPatterns.isUserId(userId)) {
-                            ParsedCommand.IgnoreUser(userId)
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.IGNORE_USER)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.IGNORE_USER)
-                    }
-                }
-                Command.UNIGNORE_USER.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        val userId = messageParts[1]
-
-                        if (MatrixPatterns.isUserId(userId)) {
-                            ParsedCommand.UnignoreUser(userId)
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.UNIGNORE_USER)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.UNIGNORE_USER)
-                    }
-                }
-                Command.SET_USER_POWER_LEVEL.matches(slashCommand) -> {
-                    if (messageParts.size == 3) {
-                        val userId = messageParts[1]
-                        if (MatrixPatterns.isUserId(userId)) {
-                            val powerLevelsAsString = messageParts[2]
-
-                            try {
-                                val powerLevelsAsInt = Integer.parseInt(powerLevelsAsString)
-
-                                ParsedCommand.SetUserPowerLevel(userId, powerLevelsAsInt)
-                            } catch (e: Exception) {
-                                ParsedCommand.ErrorSyntax(Command.SET_USER_POWER_LEVEL)
-                            }
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.SET_USER_POWER_LEVEL)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.SET_USER_POWER_LEVEL)
-                    }
-                }
-                Command.RESET_USER_POWER_LEVEL.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        val userId = messageParts[1]
-
-                        if (MatrixPatterns.isUserId(userId)) {
-                            ParsedCommand.SetUserPowerLevel(userId, null)
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.SET_USER_POWER_LEVEL)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.SET_USER_POWER_LEVEL)
-                    }
-                }
-                Command.MARKDOWN.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        when {
-                            "on".equals(messageParts[1], true) -> ParsedCommand.SetMarkdown(true)
-                            "off".equals(messageParts[1], true) -> ParsedCommand.SetMarkdown(false)
-                            else -> ParsedCommand.ErrorSyntax(Command.MARKDOWN)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.MARKDOWN)
-                    }
-                }
-                Command.DEVTOOLS.matches(slashCommand) -> {
-                    if (messageParts.size == 1) {
-                        ParsedCommand.DevTools
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.DEVTOOLS)
-                    }
-                }
-                Command.CLEAR_SCALAR_TOKEN.matches(slashCommand) -> {
-                    if (messageParts.size == 1) {
-                        ParsedCommand.ClearScalarToken
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.CLEAR_SCALAR_TOKEN)
-                    }
-                }
-                Command.SPOILER.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.SendSpoiler(message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.SPOILER)
-                    }
-                }
-                Command.SHRUG.matches(slashCommand) -> {
-                    ParsedCommand.SendShrug(message)
-                }
-                Command.LENNY.matches(slashCommand) -> {
-                    ParsedCommand.SendLenny(message)
-                }
-                Command.TABLE_FLIP.matches(slashCommand) -> {
-                    ParsedCommand.SendTableFlip(message)
-                }
-                Command.DISCARD_SESSION.matches(slashCommand) -> {
-                    if (messageParts.size == 1) {
-                        ParsedCommand.DiscardSession
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.DISCARD_SESSION)
-                    }
-                }
-                Command.WHOIS.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        val userId = messageParts[1]
-
-                        if (MatrixPatterns.isUserId(userId)) {
-                            ParsedCommand.ShowUser(userId)
-                        } else {
-                            ParsedCommand.ErrorSyntax(Command.WHOIS)
-                        }
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.WHOIS)
-                    }
-                }
-                Command.CONFETTI.matches(slashCommand) -> {
-                    ParsedCommand.SendChatEffect(ChatEffect.CONFETTI, message)
-                }
-                Command.SNOWFALL.matches(slashCommand) -> {
-                    ParsedCommand.SendChatEffect(ChatEffect.SNOWFALL, message)
-                }
-                Command.CREATE_SPACE.matches(slashCommand) -> {
-                    if (messageParts.size >= 2) {
-                        ParsedCommand.CreateSpace(
-                                messageParts[1],
-                                messageParts.drop(2)
-                        )
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.CREATE_SPACE)
-                    }
-                }
-                Command.ADD_TO_SPACE.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        ParsedCommand.AddToSpace(spaceId = messageParts.last())
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.ADD_TO_SPACE)
-                    }
-                }
-                Command.JOIN_SPACE.matches(slashCommand) -> {
-                    if (messageParts.size == 2) {
-                        ParsedCommand.JoinSpace(spaceIdOrAlias = messageParts.last())
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.JOIN_SPACE)
-                    }
-                }
-                Command.LEAVE_ROOM.matches(slashCommand) -> {
-                    ParsedCommand.LeaveRoom(roomId = message)
-                }
-                Command.UPGRADE_ROOM.matches(slashCommand) -> {
-                    if (message.isNotEmpty()) {
-                        ParsedCommand.UpgradeRoom(newVersion = message)
-                    } else {
-                        ParsedCommand.ErrorSyntax(Command.UPGRADE_ROOM)
-                    }
-                }
-                Command.CRASH_APP.matches(slashCommand) && progressivePreferences.developerMode() -> {
-                    throw RuntimeException("Application crashed from user demand")
-                }
-                else -> {
-                    // Unknown command
-                    ParsedCommand.ErrorUnknownSlashCommand(slashCommand)
+            "change_display_name" -> ParsedCommand.ChangeDisplayName(obj.getString("name"))
+            "change_display_name_room" -> ParsedCommand.ChangeDisplayNameForRoom(obj.getString("name"))
+            "change_room_name" -> ParsedCommand.ChangeRoomName(obj.getString("name"))
+            "change_topic" -> ParsedCommand.ChangeTopic(obj.getString("topic"))
+            "change_room_avatar" -> ParsedCommand.ChangeRoomAvatar(obj.getString("url"))
+            "change_avatar_room" -> ParsedCommand.ChangeAvatarForRoom(obj.getString("url"))
+            "set_markdown" -> ParsedCommand.SetMarkdown(obj.getBoolean("enable"))
+            "invite" -> {
+                val userId = obj.getString("user")
+                val reason = if (obj.isNull("reason")) null else obj.getString("reason")
+                if (!MatrixPatterns.isUserId(userId)) {
+                    ParsedCommand.ErrorSyntax(Command.INVITE)
+                } else {
+                    ParsedCommand.Invite(userId, reason)
                 }
             }
+            "invite_3pid_email" -> ParsedCommand.Invite3Pid(ThreePid.Email(obj.getString("email")))
+            "invite_3pid_msisdn" -> {
+                val phone = obj.getString("phone")
+                if (phone.isMsisdn()) {
+                    ParsedCommand.Invite3Pid(ThreePid.Msisdn(phone))
+                } else {
+                    ParsedCommand.ErrorSyntax(Command.INVITE)
+                }
+            }
+            "join_room" -> {
+                val alias = obj.getString("alias")
+                val reason = if (obj.isNull("reason")) null else obj.getString("reason")
+                ParsedCommand.JoinRoom(alias, reason)
+            }
+            "part_room" -> {
+                val alias = if (obj.isNull("alias")) null else obj.getString("alias")
+                ParsedCommand.PartRoom(alias)
+            }
+            "ban_user" -> {
+                val user = obj.getString("user")
+                val reason = if (obj.isNull("reason")) null else obj.getString("reason")
+                ParsedCommand.BanUser(user, reason)
+            }
+            "unban_user" -> {
+                val user = obj.getString("user")
+                val reason = if (obj.isNull("reason")) null else obj.getString("reason")
+                ParsedCommand.UnbanUser(user, reason)
+            }
+            "remove_user" -> {
+                val user = obj.getString("user")
+                val reason = if (obj.isNull("reason")) null else obj.getString("reason")
+                ParsedCommand.RemoveUser(user, reason)
+            }
+            "ignore_user" -> ParsedCommand.IgnoreUser(obj.getString("user"))
+            "unignore_user" -> ParsedCommand.UnignoreUser(obj.getString("user"))
+            "set_power" -> {
+                val user = obj.getString("user")
+                val level = if (obj.isNull("level")) null else obj.getInt("level")
+                ParsedCommand.SetUserPowerLevel(user, level)
+            }
+            "whois" -> ParsedCommand.ShowUser(obj.getString("user"))
+            "devtools" -> ParsedCommand.DevTools
+            "clear_scalar_token" -> ParsedCommand.ClearScalarToken
+            "discard_session" -> ParsedCommand.DiscardSession
+            "create_space" -> {
+                val name = obj.getString("name")
+                val arr = obj.getJSONArray("invitees")
+                val invitees = (0 until arr.length()).map { arr.getString(it) }
+                ParsedCommand.CreateSpace(name, invitees)
+            }
+            "add_to_space" -> ParsedCommand.AddToSpace(obj.getString("space_id"))
+            "join_space" -> ParsedCommand.JoinSpace(obj.getString("id"))
+            "leave_room" -> ParsedCommand.LeaveRoom(obj.optString("room_id", ""))
+            "upgrade_room" -> ParsedCommand.UpgradeRoom(obj.getString("version"))
+            "crash_app" -> throw RuntimeException("Application crashed from user demand")
+            else -> ParsedCommand.ErrorUnknownSlashCommand(obj.optString("cmd", "/"))
         }
     }
 
-    private fun extractMessage(message: String): Pair<List<String>, String>? {
-        val messageParts = try {
-            message.split("\\s+".toRegex()).dropLastWhile { it.isEmpty() }
-        } catch (e: Exception) {
-            Timber.e(e, "## parseSlashCommand() : split failed")
-            null
-        }
-
-        // test if the string cut fails
-        if (messageParts.isNullOrEmpty()) {
-            return null
-        }
-
-        val slashCommand = messageParts.first()
-        val trimmedMessage = message.substring(slashCommand.length).trim()
-
-        return messageParts to trimmedMessage
-    }
-
-    private val notSupportedThreadsCommands: List<Command> by lazy {
-        Command.values().filter {
-            !it.isThreadCommand
-        }
-    }
-
-    /**
-     * Checks whether or not the current command is not supported by threads.
-     * @param isInThreadTimeline if its true we are in a thread timeline
-     * @param slashCommand the slash command that will be checked
-     * @return The command that is not supported
-     */
-    private fun getNotSupportedByThreads(isInThreadTimeline: Boolean, slashCommand: String): Command? {
-        return if (isInThreadTimeline) {
-            notSupportedThreadsCommands.firstOrNull {
-                it.command == slashCommand
-            }
-        } else {
-            null
-        }
-    }
-
-    private fun trimParts(message: CharSequence, messageParts: List<String>): String? {
-        val partsSize = messageParts.sumOf { it.length }
-        val gapsNumber = messageParts.size - 1
-        return message.substring(partsSize + gapsNumber).trim().takeIf { it.isNotEmpty() }
+    private fun findCommandByName(name: String): Command {
+        return Command.values().firstOrNull { it.name == name } ?: Command.PLAIN
     }
 }

@@ -958,6 +958,9 @@ object ProgressiveNative {
     @JvmStatic external fun nativeFromPunycode(domain: String): String
     @JvmStatic external fun nativeFormatCountToShortDecimal(value: Int): String
 
+    // ---- Command Parser ----
+    @JvmStatic external fun nativeParseSlashCommand(text: String, formatted: String?, isThread: Boolean, devMode: Boolean): String
+
     // ---- Encrypted Room Search ----
     @JvmStatic external fun nativeSearchRoom(roomId: String, term: String, limit: Int, offset: Int): String
 
