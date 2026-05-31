@@ -6473,3 +6473,13 @@ JNI_FUNC(jstring, nativeFormatThreadSummary)(JNIEnv* env, jclass,
     return env->NewStringUTF(result.c_str());
 }
 
+JNI_FUNC(jstring, nativeFormatEventDetails)(JNIEnv* env, jclass, jstring jEventJson) {
+    std::string result = progressive::formatEventDetails(jStr(env, jEventJson));
+    return env->NewStringUTF(result.c_str());
+}
+
+JNI_FUNC(jstring, nativeFormatRoomHistoryVis)(JNIEnv* env, jclass, jstring jVis, jboolean jNotice) {
+    std::string result = progressive::formatRoomHistoryVisibility(jStr(env, jVis), jNotice);
+    return env->NewStringUTF(result.c_str());
+}
+

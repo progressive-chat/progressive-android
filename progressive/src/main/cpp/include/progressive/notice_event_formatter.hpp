@@ -36,4 +36,11 @@ std::string formatDisplayableEvent(const std::string& eventJson,
 std::string formatThreadSummary(const std::string& eventJson,
                                  const std::string& latestEdition);
 
+// Format event details (media info: dimensions, duration, file size)
+// Returns JSON with string template and params
+std::string formatEventDetails(const std::string& eventJson);
+
+// Format room history visibility string
+std::string formatRoomHistoryVisibility(const std::string& visibility, bool forNotice);
+
 } // namespace progressive

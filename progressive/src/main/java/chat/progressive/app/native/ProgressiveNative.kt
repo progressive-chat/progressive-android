@@ -55,4 +55,7 @@ object ProgressiveNative {
     @JvmStatic external fun nativeFormatRedactedEvent(eventJson: String, senderName: String): String
     @JvmStatic external fun nativeFormatDisplayableEvent(eventJson: String, senderName: String, isDm: Boolean, appendAuthor: Boolean): String
     @JvmStatic external fun nativeFormatThreadSummary(eventJson: String, latestEdition: String): String
+    @JvmStatic external fun nativeFormatEventDetails(eventJson: String): String
+    @JvmStatic external fun nativeFormatRoomHistoryVis(visibility: String, forNotice: Boolean): String
+    @JvmStatic external fun nativeClassifyError(errorCode: String, httpCode: Int, errorMessage: String, isNetwork: Boolean, isUnknownHost: Boolean): String
 }

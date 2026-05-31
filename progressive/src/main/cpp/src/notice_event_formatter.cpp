@@ -343,4 +343,60 @@ std::string formatThreadSummary(const std::string& eventJson,
     return jsonNull();
 }
 
+std::string formatEventDetails(const std::string& eventJson) {
+    std::string type = getJsonType(eventJson);
+    bool isImage = (type == "m.image" || getJsonBool(eventJson, "isImage"));
+    bool isVideo = (type == "m.video" || getJsonBool(eventJson, "isVideo"));
+    bool isAudio = (type == "m.audio" || getJsonBool(eventJson, "isAudio"));
+    bool isFile = (type == "m.file" || getJsonBool(eventJson, "isFile"));
+    bool isPoll = (type == "m.poll.start" || getJsonBool(eventJson, "isPoll"));
+    bool isPollEnd = (type == "m.poll.end" || getJsonBool(eventJson, "isPollEnd"));
+    
+    if (isImage) {
+        int w = 0, h = 0, sz = 0;
+        try { w = std::stoi(getContentField(eventJson, "width")); } catch (...) {}
+        try { h = std::stoi(getContentField(eventJson, "height")); } catch (...) {}
+        try { sz = std::stoi(getContentField(eventJson, "size")); } catch (...) {}
+        return jsonObj("event_details_image", {std::to_string(w), std::to_string(h), std::to_string(sz)});
+    }
+    if (isVideo) {
+        int dur = 0, w = 0, h = 0, sz = 0;
+        try { dur = std::stoi(getContentField(eventJson, "duration")); } catch (...) {}
+        try { w = std::stoi(getContentField(eventJson, "width")); } catch (...) {}
+        try { h = std::stoi(getContentField(eventJson, "height")); } catch (...) {}
+        try { sz = std::stoi(getContentField(eventJson, "size")); } catch (...) {}
+        return jsonObj("event_details_video", {std::to_string(dur), std::to_string(w), std::to_string(h), std::to_string(sz)});
+    }
+    if (isAudio) {
+        int dur = 0, sz = 0;
+        try { dur = std::stoi(getContentField(eventJson, "duration")); } catch (...) {}
+        try { sz = std::stoi(getContentField(eventJson, "size")); } catch (...) {}
+        return jsonObj("event_details_audio", {std::to_string(dur), std::to_string(sz)});
+    }
+    if (isFile) {
+        int sz = 0;
+        std::string mime = getContentField(eventJson, "mimeType");
+        try { sz = std::stoi(getContentField(eventJson, "size")); } catch (...) {}
+        return jsonObj("event_details_file", {std::to_string(sz), mime});
+    }
+    if (isPoll) return jsonObj("reply_to_poll_preview", {});
+    if (isPollEnd) return jsonObj("reply_to_ended_poll_preview", {});
+    return jsonNull();
+}
+
+std::string formatRoomHistoryVisibility(const std::string& visibility, bool forNotice) {
+    if (forNotice) {
+        if (visibility == "world_readable") return jsonObj("notice_room_visibility_world_readable", {});
+        if (visibility == "shared") return jsonObj("notice_room_visibility_shared", {});
+        if (visibility == "invited") return jsonObj("notice_room_visibility_invited", {});
+        if (visibility == "joined") return jsonObj("notice_room_visibility_joined", {});
+    } else {
+        if (visibility == "world_readable") return jsonObj("room_settings_read_history_entry_anyone", {});
+        if (visibility == "shared") return jsonObj("room_settings_read_history_entry_members_since", {});
+        if (visibility == "invited") return jsonObj("room_settings_read_history_entry_members_only_invited", {});
+        if (visibility == "joined") return jsonObj("room_settings_read_history_entry_members_only_joined", {});
+    }
+    return jsonNull();
+}
+
 } // namespace progressive
