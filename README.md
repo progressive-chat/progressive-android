@@ -10,6 +10,10 @@ Currently an active fork of [Element](https://github.com/element-hq) Classic ([e
 
 > 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) on Matrix
 
+## Development Status
+
+The client is approximately **halfway complete**. When ready, it will be published in the [Matrix.org clients directory](https://matrix.org/clients/).
+
 ## The Vision
 
 - **Pure C++ core** for maximum performance and portability
