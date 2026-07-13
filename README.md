@@ -6,6 +6,8 @@ Currently an active fork of [Element](https://github.com/element-hq) Classic ([e
 
 🚀 **Rocket-speed development** — a full Matrix client implemented in months, not years. 200+ C++ native modules and counting.
 
+I worked on the project for one month, then took a month off to rest. Right now a new month of intensive development is underway — or however long my energy for it lasts.
+
 **Website:** [progressive.chat](https://progressive.chat)
 
 > 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) on Matrix
