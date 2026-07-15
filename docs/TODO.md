@@ -1,0 +1,4 @@
+# TODO
+
+- Main screen overflow (three-dot) menu: add a theme switch as the default item.
+- Long-press any item in that menu to show a tooltip explaining what the item does.
