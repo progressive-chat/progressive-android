@@ -59,42 +59,42 @@ The agent can:
 
 Progressive Chat replaces slow Kotlin/Java components with native C++:
 
-| Module | File | Replaces |
-|--------|------|----------|
-| `/jumptodate` | `jumptodate.cpp` | MSC3030 URL construction & response parsing |
-| Jump to source | `relation.cpp` | Event relation parsing |
-| Chat export | `exporter.cpp` | HTML/PlainText/JSON formatting |
-| Event cache | `eventcache.cpp` | Stage 2 context menu data assembly |
-| Event database | `eventdb.cpp` | Realm DB queries (SQLite-native, 50x faster) |
-| Message translation | `translate.cpp` | OpenAI-compatible API request/response |
-| Proxy/Tor/I2P | `proxy.cpp` | Connection routing (SOCKS5/HTTP proxy) |
-| Yggdrasil | `yggdrasil.cpp` | .ygg domain resolution, URL rewriting |
-| Markdown renderer | `markdown.cpp` | Full markdown → HTML with table support |
-| Account export | `account_export.cpp` | Encrypted .pca file export/import |
-| Audio engine | `audio_engine.cpp` | Background playback, format, progress |
-| Media filter | `media_filter.cpp` | Extension filter, expired files detection |
-| Content filter | `content_filter.cpp` | Keyword block, remote image block, EXIF |
-| Chunked upload | `chunked_upload.cpp` | Zero-copy streaming file upload |
-| Chat features | `chat_features.cpp` | Custom timezone display, EXIF detection |
-| Invitation hide | `invitation_hide.cpp` | Blacklist-style invitation hiding |
-| Thread aggregator | `thread_aggregator.cpp` | All-threads cross-room view |
-| User messages | `user_messages.cpp` | Per-user cached message history |
-| Room version | `room_version.cpp` | Room version selector validation |
-| Chat preview | `chat_preview.cpp` | Expanded 2-3x block with compact messages |
-| RAM monitor | `ram_monitor.cpp` | Process RSS monitor via /proc |
-| Cache manager | `cache_manager.cpp` | Selective cache deletion by room/date |
-| Message aggregator | `message_aggregator.cpp` | All-messages pseudoroom |
-| Room info | `room_info.cpp` | Creation date, full history indicator |
-| Deleted archive | `deleted_archive.cpp` | Pre-deletion message archive |
-| Search index | `search_index.cpp` | Full-text search with E2E support |
-| Module loader | `module_loader.cpp` | Dynamic .so module loading at runtime |
-| Notification | `notification.cpp` | Custom keywords, reaction preview |
-| Room mirror | `room_mirror.cpp` | Room-to-room forwarding with doll accounts |
-| Input tools | `input_tools.cpp` | Symbol bar, auto-replacement rules |
-| LLM | `llm.cpp` | /llm & /llmp commands, OpenAI+Anthropic |
-| Read receipts | `read_receipts.cpp` | Avatar ordering, configurable "+N" limit |
-| Room analytics | `room_analytics.cpp` | User stats, top posters, server breakdown |
-| Chat tools | `chat_tools.cpp` | User hide timer, msg queue, auto-scroll, crop |
+| # | Module | File | Replaces |
+|---|--------|------|----------|
+| 1 | `/jumptodate` | [`jumptodate.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/jumptodate.cpp) | MSC3030 URL construction & response parsing |
+| 2 | Jump to source | [`relation.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/relation.cpp) | Event relation parsing |
+| 3 | Chat export | [`exporter.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/exporter.cpp) | HTML/PlainText/JSON formatting |
+| 4 | Event cache | [`eventcache.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/eventcache.cpp) | Stage 2 context menu data assembly |
+| 5 | Event database | [`eventdb.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/eventdb.cpp) | Realm DB queries (SQLite-native, 50x faster) |
+| 6 | Message translation | [`translate.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/translate.cpp) | OpenAI-compatible API request/response |
+| 7 | Proxy/Tor/I2P | [`proxy.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/proxy.cpp) | Connection routing (SOCKS5/HTTP proxy) |
+| 8 | Yggdrasil | [`yggdrasil.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/yggdrasil.cpp) | .ygg domain resolution, URL rewriting |
+| 9 | Markdown renderer | [`markdown.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/markdown.cpp) | Full markdown → HTML with table support |
+| 10 | Account export | [`account_export.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/account_export.cpp) | Encrypted .pca file export/import |
+| 11 | Audio engine | [`audio_engine.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/audio_engine.cpp) | Background playback, format, progress |
+| 12 | Media filter | [`media_filter.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/media_filter.cpp) | Extension filter, expired files detection |
+| 13 | Content filter | [`content_filter.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/content_filter.cpp) | Keyword block, remote image block, EXIF |
+| 14 | Chunked upload | [`chunked_upload.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/chunked_upload.cpp) | Zero-copy streaming file upload |
+| 15 | Chat features | [`chat_features.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/chat_features.cpp) | Custom timezone display, EXIF detection |
+| 16 | Invitation hide | [`invitation_hide.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/invitation_hide.cpp) | Blacklist-style invitation hiding |
+| 17 | Thread aggregator | [`thread_aggregator.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/thread_aggregator.cpp) | All-threads cross-room view |
+| 18 | User messages | [`user_messages.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/user_messages.cpp) | Per-user cached message history |
+| 19 | Room version | [`room_version.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/room_version.cpp) | Room version selector validation |
+| 20 | Chat preview | [`chat_preview.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/chat_preview.cpp) | Expanded 2-3x block with compact messages |
+| 21 | RAM monitor | [`ram_monitor.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/ram_monitor.cpp) | Process RSS monitor via /proc |
+| 22 | Cache manager | [`cache_manager.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/cache_manager.cpp) | Selective cache deletion by room/date |
+| 23 | Message aggregator | [`message_aggregator.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/message_aggregator.cpp) | All-messages pseudoroom |
+| 24 | Room info | [`room_info.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/room_info.cpp) | Creation date, full history indicator |
+| 25 | Deleted archive | [`deleted_archive.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/deleted_archive.cpp) | Pre-deletion message archive |
+| 26 | Search index | [`search_index.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/search_index.cpp) | Full-text search with E2E support |
+| 27 | Module loader | [`module_loader.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/module_loader.cpp) | Dynamic .so module loading at runtime |
+| 28 | Notification | [`notification.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/notification.cpp) | Custom keywords, reaction preview |
+| 29 | Room mirror | [`room_mirror.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/room_mirror.cpp) | Room-to-room forwarding with doll accounts |
+| 30 | Input tools | [`input_tools.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/input_tools.cpp) | Symbol bar, auto-replacement rules |
+| 31 | LLM | [`llm.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/llm.cpp) | /llm & /llmp commands, OpenAI+Anthropic |
+| 32 | Read receipts | [`read_receipts.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/read_receipts.cpp) | Avatar ordering, configurable "+N" limit |
+| 33 | Room analytics | [`room_analytics.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/room_analytics.cpp) | User stats, top posters, server breakdown |
+| 34 | Chat tools | [`chat_tools.cpp`](https://github.com/progressive-chat/progressive-android/blob/main/progressive/src/main/cpp/src/chat_tools.cpp) | User hide timer, msg queue, auto-scroll, crop |
 
 ## Building
 
