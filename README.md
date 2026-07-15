@@ -8,6 +8,8 @@ Currently an active fork of [Element](https://github.com/element-hq) Classic ([e
 
 I worked on the project for one month, then took a month off to rest. Right now a new month of intensive development is underway — or however long my energy for it lasts.
 
+> ⚠️ **Server maintenance:** The server is currently under maintenance and will be back online within the next few days.
+
 **Website:** [progressive.chat](https://progressive.chat)
 
 > 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) on Matrix
