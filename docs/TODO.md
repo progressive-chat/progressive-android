@@ -5,3 +5,4 @@
 - Add multi-account support.
 - Polish the C++ crypto to 100%.
 - Build a custom, more performant UI.
+- Design long-press actions for UI elements.
