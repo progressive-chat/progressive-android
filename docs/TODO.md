@@ -7,4 +7,4 @@
 - Build a custom, more performant UI.
 - Design long-press actions for UI elements.
 - Offline-first actions: allow creating/customizing rooms, inviting, and sending messages (incl. backdated, marked accordingly) while offline; flag them with a pending-internet icon and sync to the server once connection returns.
-- Under the "All Chats" label, show when the chat order was last updated (helps spot a frozen list refresh).
+- Under the "All Chats" label, show when the chat order was last updated (helps spot a frozen list refresh); add a manual refresh button and a way to reconcile local room state against states on other servers.
