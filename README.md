@@ -6,7 +6,7 @@ Currently an active fork of [Element](https://github.com/element-hq) Classic ([e
 
 🚀 **Rocket-speed development** — a full Matrix client implemented in months, not years. 200+ C++ native modules and counting.
 
-I worked on the project for one month, then took a month off to rest. Right now a new month of intensive development is underway — or however long my energy for it lasts.
+I worked on the project for one month, then took a month off to rest. Right now a new month of intensive development is underway — or however long my energy for it lasts. P.S. check [progressive-desktop](https://github.com/MaurerAnton/progressive-desktop)
 
 > ⚠️ **Server maintenance:** The server is currently under maintenance and will be back online within the next few days.
 
