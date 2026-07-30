@@ -10,9 +10,7 @@ I worked on the project for one month, then took a month off to rest. Right now 
 
 **Website:** [progressive.chat](https://progressive.chat)
 
-> ⚠️ **Server maintenance:** The homeserver is currently under maintenance and will be back online within the next few days.
-
-> 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) on Matrix
+> 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) (!M5sKMxqaYK1whey20p:progressive.chat) on Matrix (last update - 30.07.2026)
 
 ## Development Status
 
