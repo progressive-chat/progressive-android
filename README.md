@@ -10,7 +10,7 @@ I worked on the project for one month, then took a month off to rest. Right now 
 
 **Website:** [progressive.chat](https://progressive.chat)
 
-> 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) (!M5sKMxqaYK1whey20p:progressive.chat) on Matrix (last update - 30.07.2026)
+> 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) (!lU43N9MCwKQgSAn5UvoDp15jA_JftwZJZv2mZ8avw0E) on Matrix (last update - 30.07.2026)
 
 ## Development Status
 
