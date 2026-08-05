@@ -10,7 +10,9 @@ I worked on the project for one month, then took a month off to rest. Right now 
 
 **Website:** [progressive.chat](https://progressive.chat)
 
-> 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) (!lU43N9MCwKQgSAn5UvoDp15jA_JftwZJZv2mZ8avw0E) on Matrix (last update - 30.07.2026)
+> ⚠️ **Server note:** the Matrix homeserver (`progressive.chat`) is currently **IPv6-only** — clients on IPv4-only networks (many mobile carriers, some WiFis) cannot connect yet. IPv4 support is planned.
+
+> 💬 **Chat with the author:** Join [#community:progressive.chat](https://matrix.to/#/#community:progressive.chat) (!lU43N9MCwKQgSAn5UvoDp15jA_JftwZJZv2mZ8avw0E) on Matrix (last update - 05.08.2026)
 
 ## Development Status
 
