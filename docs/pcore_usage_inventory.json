@@ -1,0 +1,4646 @@
+{
+ "total_imports": 2836,
+ "files_with_sdk": 858,
+ "by_subsystem": {
+  "extensions": 187,
+  "session": 1904,
+  "util": 269,
+  "failure": 79,
+  "flow": 92,
+  "query": 53,
+  "MatrixCallback": 1,
+  "MatrixPatterns": 20,
+  "raw": 14,
+  "MatrixConstants": 4,
+  "auth": 151,
+  "Matrix": 12,
+  "account": 8,
+  "settings": 4,
+  "federation": 2,
+  "provider": 3,
+  "securestorage": 3,
+  "network": 5,
+  "MatrixUrls": 3,
+  "cache": 2,
+  "crypto": 2,
+  "listeners": 4,
+  "logger": 9,
+  "metrics": 5
+ },
+ "top_classes": {
+  "api.session.Session": 213,
+  "api.util.MatrixItem": 100,
+  "api.extensions.orFalse": 94,
+  "api.session.room.model.RoomSummary": 92,
+  "api.extensions.tryOrNull": 75,
+  "api.util.toMatrixItem": 75,
+  "api.session.getRoom": 72,
+  "flow.flow": 63,
+  "api.session.events.model.toModel": 48,
+  "api.session.room.timeline.TimelineEvent": 48,
+  "api.session.room.model.Membership": 45,
+  "api.session.events.model.EventType": 42,
+  "api.query.QueryStringValue": 32,
+  "api.session.events.model.Event": 30,
+  "api.session.getRoomSummary": 25,
+  "api.failure.Failure": 25,
+  "flow.unwrap": 24,
+  "api.session.identity.ThreePid": 23,
+  "api.session.content.ContentAttachmentData": 22,
+  "api.session.room.model.RoomMemberSummary": 22,
+  "api.session.crypto.model.RoomEncryptionTrustLevel": 22,
+  "api.session.room.model.RoomJoinRules": 21,
+  "api.session.room.roomSummaryQueryParams": 19,
+  "api.session.room.model.SpaceChildInfo": 19,
+  "api.session.room.members.ChangeMembershipState": 19,
+  "api.auth.data.LoginFlowTypes": 19,
+  "api.session.room.Room": 18,
+  "api.session.crypto.model.DeviceInfo": 18,
+  "api.auth.registration.RegistrationFlowResponse": 18,
+  "api.session.crypto.model.CryptoDeviceInfo": 18,
+  "api.session.widgets.model.Widget": 17,
+  "api.session.room.getTimelineEvent": 16,
+  "api.session.user.model.User": 16,
+  "api.session.room.model.RoomType": 16,
+  "api.session.events.model.toContent": 15,
+  "api.session.getUserOrDefault": 15,
+  "api.raw.RawService": 14,
+  "api.session.room.model.message.MessageContent": 13,
+  "api.util.BuildVersionSdkIntProvider": 13,
+  "api.session.permalinks.PermalinkData": 13,
+  "api.session.pushrules.RuleIds": 13,
+  "api.MatrixPatterns": 12,
+  "api.Matrix": 12,
+  "api.session.room.notification.RoomNotificationState": 12,
+  "api.session.sync.SyncRequestState": 11,
+  "api.session.events.model.RelationType": 11,
+  "api.util.MatrixJsonParser": 11,
+  "api.session.room.model.message.MessageType": 11,
+  "api.auth.SSOAction": 11,
+  "api.session.widgets.model.WidgetType": 10,
+  "api.session.terms.TermsService": 10,
+  "api.session.room.powerlevels.UserPowerLevel": 10,
+  "api.auth.AuthenticationService": 10,
+  "api.auth.UIABaseAuth": 10,
+  "api.util.MimeTypes": 10,
+  "api.session.room.send.SendState": 10,
+  "api.util.Optional": 9,
+  "api.session.accountdata.UserAccountDataTypes": 9,
+  "api.session.room.model.message.MessageAudioContent": 9,
+  "api.session.room.model.message.asMessageAudioEvent": 9
+ },
+ "files": {
+  "progressive/src/main/java/chat/progressive/app/UISIDetector.kt": [
+   "extensions.orFalse",
+   "session.EncryptedEventContent",
+   "session.Event",
+   "session.LiveEventListener",
+   "session.MXCryptoError",
+   "session.toModel",
+   "util.JsonDict"
+  ],
+  "progressive/src/main/java/chat/progressive/app/SpaceStateHandlerImpl.kt": [
+   "extensions.tryOrNull",
+   "session.RoomSummary",
+   "session.Session",
+   "session.SyncRequestState",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "util.Optional",
+   "util.toOption"
+  ],
+  "progressive/src/main/java/chat/progressive/app/SpaceStateHandler.kt": [
+   "session.RoomSummary",
+   "session.Session",
+   "util.Optional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/AutoRageShaker.kt": [
+   "session.Event",
+   "session.Session",
+   "session.SyncRequestState",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/ActiveSessionDataSource.kt": [
+   "session.Session",
+   "util.Optional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/MainActivity.kt": [
+   "failure.GlobalError",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/workers/signout/SignoutCheckViewModel.kt": [
+   "flow.flow",
+   "session.KeysBackupState",
+   "session.KeysBackupStateListener",
+   "session.MASTER_KEY_SSSS_NAME",
+   "session.SELF_SIGNING_KEY_SSSS_NAME",
+   "session.Session",
+   "session.USER_SIGNING_KEY_SSSS_NAME"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/workers/signout/SignOutUiWorker.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/workers/signout/SignOutBottomSheetDialogFragment.kt": [
+   "session.KeysBackupState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/workers/signout/ServerBackupStatusViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "session.KeysBackupState",
+   "session.KeysBackupStateListener",
+   "session.MASTER_KEY_SSSS_NAME",
+   "session.SELF_SIGNING_KEY_SSSS_NAME",
+   "session.Session",
+   "session.USER_SIGNING_KEY_SSSS_NAME"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/WidgetViewState.kt": [
+   "session.Widget",
+   "session.WidgetType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/WidgetViewModel.kt": [
+   "flow.flow",
+   "query.QueryStringValue",
+   "session.Content",
+   "session.IntegrationManagerService",
+   "session.Session",
+   "session.WidgetManagementFailure",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/WidgetViewEvents.kt": [
+   "session.Content"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/WidgetPostAPIHandler.kt": [
+   "query.QueryStringValue",
+   "session.Content",
+   "session.Event",
+   "session.EventType",
+   "session.Membership",
+   "session.Session",
+   "session.UserAccountDataTypes",
+   "session.WidgetPostAPIMediator",
+   "session.getRoom",
+   "session.getRoomPowerLevels",
+   "session.getStateEvent",
+   "session.toContent",
+   "util.JsonDict"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/WidgetFragment.kt": [
+   "session.TermsService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/WidgetArgsBuilder.kt": [
+   "session.Widget"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/WidgetActivity.kt": [
+   "extensions.orFalse",
+   "session.Content"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/permissions/WidgetPermissionsHelper.kt": [
+   "query.QueryStringValue",
+   "session.IntegrationManagerService",
+   "session.WidgetService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/permissions/RoomWidgetPermissionViewState.kt": [
+   "session.Widget"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/permissions/RoomWidgetPermissionViewModel.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "flow.flow",
+   "query.QueryStringValue",
+   "session.Session",
+   "session.WidgetType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/widgets/permissions/RoomWidgetPermissionBottomSheet.kt": [
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/webview/WebViewMode.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/webview/WebViewEventListenerFactory.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/webview/ProgressiveWebViewActivity.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/webview/ConsentWebViewEventListener.kt": [
+   "MatrixCallback.MatrixCallback",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/VoiceBroadcastExtensions.kt": [
+   "extensions.orFalse",
+   "session.Content",
+   "session.MessageAudioEvent",
+   "session.getRelationContent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/VoiceBroadcastConstants.kt": [
+   "session.MessageAudioContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/usecase/GetVoiceBroadcastStateEventUseCase.kt": [
+   "extensions.orTrue",
+   "session.RelationType",
+   "session.Room",
+   "session.Session",
+   "session.getRoom",
+   "session.getTimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/usecase/GetVoiceBroadcastStateEventLiveUseCase.kt": [
+   "flow.flow",
+   "flow.mapOptional",
+   "query.QueryStringValue",
+   "session.Room",
+   "session.Session",
+   "session.getRoom",
+   "util.Optional",
+   "util.toOptional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/usecase/GetRoomLiveVoiceBroadcastsUseCase.kt": [
+   "query.QueryStringValue",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/recording/VoiceBroadcastRecorderQ.kt": [
+   "extensions.tryOrNull",
+   "flow.flow",
+   "session.ContentAttachmentData",
+   "session.SyncState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/recording/usecase/StopVoiceBroadcastUseCase.kt": [
+   "query.QueryStringValue",
+   "session.RelationDefaultContent",
+   "session.Room",
+   "session.Session",
+   "session.getRoom",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/recording/usecase/StopOngoingVoiceBroadcastUseCase.kt": [
+   "query.QueryStringValue",
+   "session.Membership",
+   "session.getRoom",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/recording/usecase/StartVoiceBroadcastUseCase.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "session.RelationDefaultContent",
+   "session.RelationType",
+   "session.Room",
+   "session.Session",
+   "session.getRoom",
+   "session.getRoomPowerLevels",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/recording/usecase/ResumeVoiceBroadcastUseCase.kt": [
+   "query.QueryStringValue",
+   "session.RelationDefaultContent",
+   "session.Room",
+   "session.Session",
+   "session.getRoom",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/recording/usecase/PauseVoiceBroadcastUseCase.kt": [
+   "failure.Failure",
+   "flow.flow",
+   "query.QueryStringValue",
+   "session.RelationDefaultContent",
+   "session.Room",
+   "session.Session",
+   "session.SyncState",
+   "session.getRoom",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/model/VoiceBroadcastEvent.kt": [
+   "session.Event",
+   "session.RelationDefaultContent",
+   "session.RelationType",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/model/MessageVoiceBroadcastInfoContent.kt": [
+   "session.Content",
+   "session.MSGTYPE_VOICE_BROADCAST_INFO",
+   "session.MessageContent",
+   "session.RelationDefaultContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/listening/VoiceBroadcastPlaylist.kt": [
+   "session.MessageAudioEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/listening/VoiceBroadcastPlayerImpl.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "session.EventType",
+   "session.MessageAudioContent",
+   "session.asMessageAudioEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voicebroadcast/listening/usecase/GetLiveVoiceBroadcastChunksUseCase.kt": [
+   "session.Event",
+   "session.EventType",
+   "session.MessageAudioEvent",
+   "session.RelationType",
+   "session.Timeline",
+   "session.TimelineEvent",
+   "session.TimelineSettings",
+   "session.asMessageAudioEvent",
+   "session.getRelationContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voice/VoiceRecorderProvider.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voice/VoiceRecorderL.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voice/VoiceRecorder.kt": [
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voice/AbstractVoiceRecorderQ.kt": [
+   "extensions.tryOrNull",
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/voice/AbstractVoiceRecorder.kt": [
+   "session.ContentAttachmentData",
+   "util.md5"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/userdirectory/UserListViewState.kt": [
+   "session.User"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/userdirectory/UserListViewModel.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "extensions.isEmail",
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.IdentityServiceError",
+   "session.IdentityServiceListener",
+   "session.Session",
+   "session.ThreePid",
+   "session.User",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/userdirectory/UserListFragment.kt": [
+   "session.ThreePid",
+   "session.User"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/userdirectory/UserListController.kt": [
+   "session.IdentityServiceError",
+   "session.Session",
+   "session.ThreePid",
+   "session.User",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/userdirectory/UserDirectoryUserItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/userdirectory/PendingSelection.kt": [
+   "session.ThreePid",
+   "session.User",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/usercode/UserCodeState.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/usercode/UserCodeSharedViewModel.kt": [
+   "extensions.tryOrNull",
+   "session.PermalinkData",
+   "session.PermalinkParser",
+   "session.Session",
+   "session.User",
+   "session.getUserOrDefault",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/usercode/UserCodeActions.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/terms/ServiceTermsArgs.kt": [
+   "session.TermsService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/terms/ReviewTermsViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/terms/ReviewTermsFragment.kt": [
+   "session.TermsService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/terms/ReviewTermsActivity.kt": [
+   "session.TermsService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/sync/widget/SyncStateView.kt": [
+   "session.SyncRequestState",
+   "session.SyncState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SubSpaceSummaryItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceSummaryItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceSummaryController.kt": [
+   "extensions.orFalse",
+   "session.Membership",
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSummary",
+   "session.SpaceChildInfo",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceSettingsMenuBottomSheet.kt": [
+   "extensions.orFalse",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceMenuViewModel.kt": [
+   "flow.flow",
+   "query.RoomCategoryFilter",
+   "query.SpaceFilter",
+   "session.EventType",
+   "session.Membership",
+   "session.Role",
+   "session.Session",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceMenuState.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceListViewState.kt": [
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSummary",
+   "session.User",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceListViewModel.kt": [
+   "extensions.tryOrNull",
+   "query.QueryStringValue",
+   "query.SpaceFilter",
+   "session.Membership",
+   "session.RoomAccountDataTypes",
+   "session.Session",
+   "session.SpaceOrderContent",
+   "session.SpaceOrderUtils",
+   "session.TopLevelSpaceComparator",
+   "session.getRoom",
+   "session.getUserOrDefault",
+   "session.spaceSummaryQueryParams",
+   "session.toContent",
+   "session.toModel",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceListFragment.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceListAction.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/SpaceInviteItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/NewSubSpaceSummaryItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/NewSpaceSummaryItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/NewSpaceSummaryController.kt": [
+   "extensions.orFalse",
+   "session.Membership",
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSummary",
+   "session.SpaceChildInfo",
+   "session.User",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/GetSpacesUseCase.kt": [
+   "flow.flow",
+   "session.RoomSummary",
+   "session.SpaceSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/share/ShareSpaceViewState.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/share/ShareSpaceViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "session.Session",
+   "session.getRoom",
+   "session.getRoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/preview/SubSpaceItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/preview/SpacePreviewViewModel.kt": [
+   "session.JoinSpaceResult",
+   "session.PeekResult",
+   "session.RoomType",
+   "session.Session",
+   "session.SpacePeekResult",
+   "session.SpaceSubChildPeekResult",
+   "session.getRoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/preview/SpacePreviewFragment.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/preview/RoomChildItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/people/SpacePeopleViewModel.kt": [
+   "extensions.orFalse",
+   "raw.RawService",
+   "session.CreateRoomParams",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/people/SpacePeopleViewAction.kt": [
+   "session.RoomMemberSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/people/SpacePeopleListController.kt": [
+   "session.RoomMemberSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/people/SpacePeopleFragment.kt": [
+   "session.RoomMemberSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/notification/GetNotificationCountForSpacesUseCase.kt": [
+   "query.SpaceFilter",
+   "session.Membership",
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSortOrder",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceSettingsFragment.kt": [
+   "session.GuestAccess",
+   "session.RoomHistoryVisibility",
+   "session.RoomJoinRules",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceSettingsController.kt": [
+   "session.RoomJoinRules",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceManageSharedViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceManageRoomsViewModel.kt": [
+   "extensions.tryOrNull",
+   "session.Session",
+   "session.getRoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceManageRoomsFragment.kt": [
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceManageRoomsController.kt": [
+   "session.SpaceChildInfo",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceManageRoomViewState.kt": [
+   "session.RoomSummary",
+   "session.SpaceHierarchyData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceChildInfoMatchFilter.kt": [
+   "extensions.orFalse",
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceAddRoomsViewModel.kt": [
+   "query.QueryStringValue",
+   "query.RoomCategoryFilter",
+   "query.SpaceFilter",
+   "session.Membership",
+   "session.RoomSortOrder",
+   "session.RoomType",
+   "session.Session",
+   "session.UpdatableLivePageResult",
+   "session.getRoomSummary",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceAddRoomFragment.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/SpaceAddRoomActions.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/RoomSelectionItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/RoomManageSelectionItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/manage/AddRoomListController.kt": [
+   "session.ResultBoundaries",
+   "session.RoomSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/leave/SpaceLeaveAdvancedViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "query.RoomCategoryFilter",
+   "query.SpaceFilter",
+   "session.Membership",
+   "session.Session",
+   "session.getRoom",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/leave/SpaceLeaveAdvancedFragment.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/leave/SpaceLeaveAdvanceViewState.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/leave/SelectChildrenController.kt": [
+   "extensions.orFalse",
+   "session.RoomSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/invite/SpaceInviteBottomSheetViewModel.kt": [
+   "extensions.tryOrNull",
+   "session.Membership",
+   "session.PeekResult",
+   "session.RoomSummary",
+   "session.Session",
+   "session.getRoomSummary",
+   "session.getUserOrDefault"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/invite/SpaceInviteBottomSheetState.kt": [
+   "session.RoomSummary",
+   "session.User"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/invite/SpaceInviteBottomSheet.kt": [
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/explore/SpaceDirectoryViewModel.kt": [
+   "flow.flow",
+   "session.EventType",
+   "session.Membership",
+   "session.RoomJoinRules",
+   "session.RoomSummary",
+   "session.RoomType",
+   "session.Session",
+   "session.SpaceChildInfo",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/explore/SpaceDirectoryViewAction.kt": [
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/explore/SpaceDirectoryState.kt": [
+   "session.ChangeMembershipState",
+   "session.RoomSummary",
+   "session.SpaceChildInfo",
+   "session.SpaceHierarchyData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/explore/SpaceDirectoryFragment.kt": [
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/explore/SpaceDirectoryController.kt": [
+   "extensions.orFalse",
+   "failure.Failure",
+   "failure.M_UNRECOGNIZED",
+   "session.ChangeMembershipState",
+   "session.RoomType",
+   "session.SpaceChildInfo",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/create/SpaceDetailEpoxyController.kt": [
+   "MatrixConstants.MatrixConstants",
+   "session.RoomAliasError",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/create/CreateSpaceViewModelTask.kt": [
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.CreateRoomFailure",
+   "session.CreateRoomParams",
+   "session.CreateRoomPreset",
+   "session.CreateSpaceParams",
+   "session.GuestAccess",
+   "session.HomeServerCapabilities",
+   "session.PowerLevelsContent",
+   "session.RestrictedRoomPreset",
+   "session.RoomDirectoryVisibility",
+   "session.RoomHistoryVisibility",
+   "session.RoomJoinRulesAllowEntry",
+   "session.Session",
+   "session.ThreePid",
+   "session.UserPowerLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/spaces/create/CreateSpaceViewModel.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "MatrixPatterns.getServerName",
+   "extensions.isEmail",
+   "session.AliasAvailabilityResult",
+   "session.CreateRoomFailure",
+   "session.IdentityServiceListener",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/signout/soft/SoftLogoutViewState.kt": [
+   "auth.LoginType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/signout/soft/SoftLogoutViewModel.kt": [
+   "auth.AuthenticationService",
+   "auth.LoginFlowTypes",
+   "auth.LoginType",
+   "session.Session",
+   "session.getUserOrDefault",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/signout/soft/SoftLogoutFragment.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/signout/soft/SoftLogoutController.kt": [
+   "auth.LoginType",
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/signout/soft/SoftLogoutActivity.kt": [
+   "failure.GlobalError",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/signout/soft/SoftLogoutAction.kt": [
+   "auth.Credentials"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/signout/hard/SignedOutActivity.kt": [
+   "failure.GlobalError"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/share/SharedData.kt": [
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/share/IncomingShareViewState.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/share/IncomingShareViewModel.kt": [
+   "flow.flow",
+   "query.QueryStringValue",
+   "session.ContentAttachmentData",
+   "session.Membership",
+   "session.Session",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/share/IncomingShareViewEvents.kt": [
+   "session.ContentAttachmentData",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/share/IncomingShareFragment.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/share/IncomingShareController.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/share/IncomingShareAction.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/SecretsSynchronisationInfo.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "session.KEYBACKUP_SECRET_SSSS_NAME",
+   "session.MASTER_KEY_SSSS_NAME",
+   "session.SELF_SIGNING_KEY_SSSS_NAME",
+   "session.Session",
+   "session.USER_SIGNING_KEY_SSSS_NAME"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveSettingsSecurity.kt": [
+   "extensions.getFingerprintHumanReadable",
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.DeviceInfo",
+   "session.isVerified"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveSettingsPreferences.kt": [
+   "session.PresenceEnum"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveSettingsPin.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveSettingsHelp.kt": [
+   "Matrix.Matrix"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveSettingsGeneral.kt": [
+   "failure.isInvalidPassword",
+   "flow.flow",
+   "flow.unwrap",
+   "session.IntegrationManagerConfig",
+   "session.IntegrationManagerService",
+   "session.getUser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveSettingsBaseFragment.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveSettingsActivity.kt": [
+   "failure.GlobalError",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ProgressiveBasePreferences.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/troubleshoot/TestSystemSettings.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/troubleshoot/TestPushRulesSettings.kt": [
+   "session.RuleIds",
+   "session.getActions"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/troubleshoot/TestPushFromPushGateway.kt": [
+   "session.PushGatewayFailure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/troubleshoot/TestEndpointAsTokenRegistration.kt": [
+   "session.PusherState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/troubleshoot/TestAccountSettings.kt": [
+   "extensions.tryOrNull",
+   "session.RuleIds",
+   "session.RuleKind"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/threepids/ThreePidsSettingsViewState.kt": [
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/threepids/ThreePidsSettingsViewModel.kt": [
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserInteractiveAuthInterceptor",
+   "flow.flow",
+   "session.DefaultBaseAuth",
+   "session.Session",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/threepids/ThreePidsSettingsViewEvents.kt": [
+   "auth.RegistrationFlowResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/threepids/ThreePidsSettingsFragment.kt": [
+   "auth.LoginFlowTypes",
+   "extensions.isEmail",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/threepids/ThreePidsSettingsController.kt": [
+   "failure.Failure",
+   "failure.MatrixError",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/threepids/ThreePidsSettingsAction.kt": [
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/push/PushRulesViewModel.kt": [
+   "session.PushRule"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/push/PushRuleItem.kt": [
+   "session.PushRule",
+   "session.getActions"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/push/PushGatewaysViewModel.kt": [
+   "flow.flow",
+   "session.Pusher",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/push/PushGatewaysFragment.kt": [
+   "session.Pusher"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/push/PushGatewayItem.kt": [
+   "session.Pusher"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/push/PushGatewayAction.kt": [
+   "session.Pusher"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/StandardActions.kt": [
+   "session.Action"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/RuleIdsExt.kt": [
+   "session.RuleIds"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/PushRuleDefinitions.kt": [
+   "session.RuleIds"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/ProgressiveSettingsPushRuleVM.kt": [
+   "failure.MatrixError",
+   "failure.ServerError",
+   "flow.flow",
+   "flow.unwrap",
+   "session.Action",
+   "session.PushRuleAndKind",
+   "session.RuleIds",
+   "session.RuleKind",
+   "session.Session",
+   "session.UserAccountDataTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/ProgressiveSettingsPushRuleState.kt": [
+   "session.PushRule"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/ProgressiveSettingsNotifications.kt": [
+   "extensions.tryOrNull",
+   "session.Pusher",
+   "session.RuleIds",
+   "session.RuleKind",
+   "session.Session",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/NotificationIndex.kt": [
+   "session.PushRule",
+   "session.toJson"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/usecase/UpdatePushRulesIfNeededUseCase.kt": [
+   "session.PushRule",
+   "session.PushRuleAndKind",
+   "session.RuleIds",
+   "session.Session",
+   "session.getActions"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/usecase/ToggleNotificationsForCurrentSessionUseCase.kt": [
+   "account.LocalNotificationSettingsContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/usecase/GetPushRulesOnInvalidStateUseCase.kt": [
+   "extensions.orTrue",
+   "session.PushRule",
+   "session.RuleIds",
+   "session.Session",
+   "session.getActions"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/troubleshoot/ProgressiveSettingsTroubleshoot.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/other/ProgressiveSettingsOtherNotif.kt": [
+   "session.RuleIds"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/keywordandmentions/ProgressiveSettingsKeyword.kt": [
+   "session.PushRule",
+   "session.RuleIds",
+   "session.RuleKind",
+   "session.toJson"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/defaults/ProgressiveSettingsDefNotif.kt": [
+   "session.RuleIds"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/notifications/advanced/ProgressiveSettingsAdvNotif.kt": [
+   "session.PushRuleAndKind",
+   "session.RuleIds"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/legals/LegalsViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/labs/ProgressiveSettingsLabs.kt": [
+   "settings.LightweightSettingsStorage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ignored/UserItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ignored/IgnoredUsersViewState.kt": [
+   "session.User"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ignored/IgnoredUsersViewModel.kt": [
+   "flow.flow",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/ignored/IgnoredUsersController.kt": [
+   "session.User",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/homeserver/HomeserverSettingsViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/homeserver/HomeserverSettingsController.kt": [
+   "federation.FederationVersion",
+   "session.HomeServerCapabilities",
+   "session.RoomVersionStatus"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/homeserver/HomeServerSettingsViewState.kt": [
+   "federation.FederationVersion",
+   "session.HomeServerCapabilities"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/OutgoingKeyRequestPagedController.kt": [
+   "session.OutgoingKeyRequest"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/KeyRequestsFragment.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/KeyRequestViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/KeyRequestListViewModel.kt": [
+   "session.IncomingRoomKeyRequest",
+   "session.OutgoingKeyRequest",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/IncomingKeyRequestPagedController.kt": [
+   "session.IncomingRoomKeyRequest"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/GossipingTrailPagedEpoxyController.kt": [
+   "session.AuditTrail",
+   "session.ForwardInfo",
+   "session.TrailType",
+   "session.WithheldInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/GossipingEventsSerializer.kt": [
+   "session.AuditTrail",
+   "session.ForwardInfo",
+   "session.TrailType",
+   "session.WithheldInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/GossipingEventsPaperTrailViewModel.kt": [
+   "session.AuditTrail",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/GossipingEventsPaperTrailFragment.kt": [
+   "session.AuditTrail"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/AccountDataViewModel.kt": [
+   "flow.flow",
+   "session.Session",
+   "session.UserAccountDataEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/AccountDataFragment.kt": [
+   "session.UserAccountDataEvent",
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devtools/AccountDataEpoxyController.kt": [
+   "session.UserAccountDataEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/TrustUtils.kt": [
+   "session.DeviceTrustLevel",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/ProgressiveSettingsDevices.kt": [
+   "auth.LoginFlowTypes",
+   "session.DeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DevicesViewModel.kt": [
+   "auth.LoginFlowTypes",
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserInteractiveAuthInterceptor",
+   "auth.UserPasswordAuth",
+   "auth.nextUncompletedStage",
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "failure.Failure",
+   "flow.flow",
+   "session.CryptoDeviceInfo",
+   "session.DefaultBaseAuth",
+   "session.DeviceInfo",
+   "session.RoomEncryptionTrustLevel",
+   "session.Session",
+   "session.VerificationEvent",
+   "session.VerificationService",
+   "session.VerificationTransaction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DevicesViewEvents.kt": [
+   "auth.RegistrationFlowResponse",
+   "session.CryptoDeviceInfo",
+   "session.DeviceInfo",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DevicesController.kt": [
+   "session.DeviceInfo",
+   "session.DeviceTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DevicesAction.kt": [
+   "session.CryptoDeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DeviceVerificationInfoBottomSheetViewState.kt": [
+   "session.CryptoDeviceInfo",
+   "session.DeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DeviceVerificationInfoBottomSheetViewModel.kt": [
+   "flow.flow",
+   "session.DeviceInfo",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DeviceVerificationInfoBottomSheetController.kt": [
+   "extensions.orFalse",
+   "session.CryptoDeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/DeviceItem.kt": [
+   "session.DeviceInfo",
+   "session.DeviceTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/RefreshDevicesUseCase.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/RefreshDevicesOnCryptoDevicesChangeUseCase.kt": [
+   "extensions.tryOrNull",
+   "flow.flow"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/ProgressiveSettingsDevices.kt": [
+   "auth.LoginFlowTypes",
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/ProgressiveSessionsList.kt": [
+   "session.VerificationEvent",
+   "session.VerificationService",
+   "session.VerificationTransaction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/ParseDeviceUserAgentUseCase.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/GetDeviceFullInfoListUseCase.kt": [
+   "flow.flow",
+   "session.CryptoDeviceInfo",
+   "session.DeviceInfo",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/DevicesViewModel.kt": [
+   "extensions.orFalse",
+   "session.DefaultBaseAuth"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/DevicesViewEvent.kt": [
+   "auth.RegistrationFlowResponse",
+   "session.CryptoDeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/DevicesAction.kt": [
+   "session.CryptoDeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/DeviceFullInfo.kt": [
+   "session.CryptoDeviceInfo",
+   "session.DeviceInfo",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/verification/GetEncryptionTrustLevelForOtherDeviceUseCase.kt": [
+   "session.DeviceTrustLevel",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/verification/GetEncryptionTrustLevelForDeviceUseCase.kt": [
+   "session.CryptoDeviceInfo",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/verification/GetEncryptionTrustLevelForCurrentDeviceUseCase.kt": [
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/verification/GetCurrentSessionCrossSigningInfoUseCase.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "session.MXCrossSigningInfo",
+   "util.Optional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/verification/CheckIfCurrentSessionCanBeVerifiedUseCase.kt": [
+   "extensions.orFalse",
+   "flow.flow"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/signout/SignoutSessionsUseCase.kt": [
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserInteractiveAuthInterceptor"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/signout/SignoutSessionsReAuthNeeded.kt": [
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/signout/InterceptSignoutFlowResponseUseCase.kt": [
+   "auth.LoginFlowTypes",
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserPasswordAuth",
+   "auth.nextUncompletedStage",
+   "session.DefaultBaseAuth"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/overview/SessionOverviewViewModel.kt": [
+   "extensions.orFalse",
+   "session.DefaultBaseAuth",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/overview/SessionOverviewViewEvent.kt": [
+   "auth.RegistrationFlowResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/overview/SessionOverviewFragment.kt": [
+   "auth.LoginFlowTypes",
+   "extensions.orFalse",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/overview/GetDeviceFullInfoUseCase.kt": [
+   "flow.unwrap",
+   "util.toOptional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/othersessions/OtherSessionsViewModel.kt": [
+   "extensions.orFalse",
+   "session.DefaultBaseAuth"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/othersessions/OtherSessionsViewEvents.kt": [
+   "auth.RegistrationFlowResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/othersessions/OtherSessionsFragment.kt": [
+   "auth.LoginFlowTypes",
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/UpdateNotificationSettingsAccountDataUseCase.kt": [
+   "account.LocalNotificationSettingsContent",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/ToggleNotificationsUseCase.kt": [
+   "account.LocalNotificationSettingsContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/SetNotificationSettingsAccountDataUseCase.kt": [
+   "account.LocalNotificationSettingsContent",
+   "session.Session",
+   "session.UserAccountDataTypes",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/GetNotificationsStatusUseCase.kt": [
+   "account.LocalNotificationSettingsContent",
+   "flow.flow",
+   "flow.unwrap",
+   "session.Session",
+   "session.UserAccountDataTypes",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/GetNotificationSettingsAccountDataUseCase.kt": [
+   "account.LocalNotificationSettingsContent",
+   "session.Session",
+   "session.UserAccountDataTypes",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/GetNotificationSettingsAccountDataUpdatesUseCase.kt": [
+   "account.LocalNotificationSettingsContent",
+   "session.Session",
+   "session.UserAccountDataTypes",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/DeleteNotificationSettingsAccountDataUseCase.kt": [
+   "account.LocalNotificationSettingsContent",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/CheckIfCanToggleNotificationsViaPusherUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/CheckIfCanToggleNotificationsViaAccountDataUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/CanToggleNotificationsViaPusherUseCase.kt": [
+   "flow.unwrap",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/notification/CanToggleNotificationsViaAccountDataUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/list/SessionInfoView.kt": [
+   "session.DeviceInfo",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/list/OtherSessionsController.kt": [
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/list/OtherSessionItem.kt": [
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/filter/FilterDevicesUseCase.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/details/SessionDetailsController.kt": [
+   "session.DeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/details/CheckIfSectionSessionIsVisibleUseCase.kt": [
+   "extensions.orFalse",
+   "session.DeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/details/CheckIfSectionDeviceIsVisibleUseCase.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/devices/v2/details/CheckIfSectionApplicationIsVisibleUseCase.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/crosssigning/CrossSigningSettingsViewState.kt": [
+   "session.MXCrossSigningInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/crosssigning/CrossSigningSettingsViewModel.kt": [
+   "auth.LoginFlowTypes",
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserInteractiveAuthInterceptor",
+   "auth.UserPasswordAuth",
+   "auth.nextUncompletedStage",
+   "flow.flow",
+   "session.DefaultBaseAuth",
+   "session.Session",
+   "session.isVerified"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/crosssigning/CrossSigningSettingsViewEvents.kt": [
+   "auth.RegistrationFlowResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/crosssigning/CrossSigningSettingsFragment.kt": [
+   "auth.LoginFlowTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/account/deactivation/DeactivateAccountViewModel.kt": [
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserInteractiveAuthInterceptor",
+   "failure.isInvalidUIAAuth",
+   "session.DefaultBaseAuth",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/account/deactivation/DeactivateAccountViewEvents.kt": [
+   "auth.RegistrationFlowResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/settings/account/deactivation/DeactivateAccountFragment.kt": [
+   "auth.LoginFlowTypes",
+   "session.UiaCancelledException"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/session/SessionScopedProperty.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/session/SessionListener.kt": [
+   "failure.GlobalError",
+   "session.Session",
+   "session.StatisticEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/session/SessionCoroutineScopes.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/session/ProgressiveSessionStore.kt": [
+   "util.md5"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/RoomProfileViewState.kt": [
+   "session.GlobalCryptoConfig",
+   "session.RoomCreateContent",
+   "session.RoomMemberSummary",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/RoomProfileViewModel.kt": [
+   "flow.FlowRoom",
+   "flow.flow",
+   "flow.mapOptional",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.EventType",
+   "session.Membership",
+   "session.RoomCreateContent",
+   "session.Session",
+   "session.getRoom",
+   "session.getStateEvent",
+   "session.isPublic",
+   "session.roomMemberQueryParams",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/RoomProfileFragment.kt": [
+   "session.RoomNotificationState",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/RoomProfileController.kt": [
+   "session.RoomEncryptionAlgorithm",
+   "session.RoomEncryptionTrustLevel",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/RoomProfileAction.kt": [
+   "session.RoomNotificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/RoomUploadsViewState.kt": [
+   "session.RoomSummary",
+   "session.UploadEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/RoomUploadsViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "session.MessageType",
+   "session.Session",
+   "session.asMessageAudioEvent",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/RoomUploadsFragment.kt": [
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/RoomUploadsAction.kt": [
+   "session.UploadEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/media/UploadsMediaController.kt": [
+   "session.MessageImageContent",
+   "session.MessageType",
+   "session.MessageVideoContent",
+   "session.UploadEvent",
+   "session.getFileUrl",
+   "session.getThumbnailUrl",
+   "session.toElementToDecrypt"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/media/RoomUploadsMediaFragment.kt": [
+   "session.MessageImageContent",
+   "session.MessageVideoContent",
+   "session.getFileUrl",
+   "session.getThumbnailUrl",
+   "session.toElementToDecrypt"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/files/UploadsFileController.kt": [
+   "session.UploadEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/uploads/files/RoomUploadsFilesFragment.kt": [
+   "session.UploadEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/RoomSettingsViewState.kt": [
+   "session.GuestAccess",
+   "session.RoomHistoryVisibility",
+   "session.RoomJoinRules",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/RoomSettingsViewModel.kt": [
+   "extensions.tryOrNull",
+   "flow.flow",
+   "flow.mapOptional",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.EventType",
+   "session.HomeServerCapabilities",
+   "session.RoomAvatarContent",
+   "session.RoomGuestAccessContent",
+   "session.RoomHistoryVisibilityContent",
+   "session.RoomJoinRulesContent",
+   "session.Session",
+   "session.getRoom",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/RoomSettingsFragment.kt": [
+   "session.GuestAccess",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/RoomSettingsController.kt": [
+   "session.GuestAccess",
+   "session.RoomJoinRules",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/RoomSettingsAction.kt": [
+   "session.GuestAccess",
+   "session.RoomHistoryVisibility",
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/SpaceJoinRuleItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/RoomJoinRuleState.kt": [
+   "session.GuestAccess",
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/RoomJoinRuleRadioAction.kt": [
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/RoomJoinRuleFragment.kt": [
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/RoomJoinRuleController.kt": [
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/RoomJoinRuleBottomSheet.kt": [
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/RoomJoinRuleAdvancedController.kt": [
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/advanced/RoomJoinRuleChooseRestrictedViewModel.kt": [
+   "query.QueryStringValue",
+   "session.EventType",
+   "session.HomeServerCapabilities",
+   "session.Membership",
+   "session.RoomJoinRules",
+   "session.RoomJoinRulesContent",
+   "session.RoomType",
+   "session.Session",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.getStateEvent",
+   "session.roomSummaryQueryParams",
+   "session.toModel",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/advanced/RoomJoinRuleChooseRestrictedState.kt": [
+   "session.RoomJoinRules",
+   "session.RoomJoinRulesAllowEntry",
+   "session.RoomSummary",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/advanced/RoomJoinRuleChooseRestrictedFragment.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/advanced/RoomJoinRuleChooseRestrictedActions.kt": [
+   "session.RoomJoinRules",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/joinrule/advanced/ChooseRestrictedController.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/historyvisibility/RoomHistoryVisibilityState.kt": [
+   "session.RoomHistoryVisibility"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/historyvisibility/RoomHistoryVisibilityRadioAction.kt": [
+   "session.RoomHistoryVisibility"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/historyvisibility/RoomHistoryVisibilityController.kt": [
+   "session.RoomHistoryVisibility"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/settings/historyvisibility/RoomHistoryVisibilityBottomSheet.kt": [
+   "session.RoomHistoryVisibility"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/list/ui/PollSummaryMapper.kt": [
+   "session.MessagePollContent",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/list/domain/SyncPollsUseCase.kt": [
+   "session.LoadedPollsStatus"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/list/domain/LoadMorePollsUseCase.kt": [
+   "session.LoadedPollsStatus"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/list/domain/GetPollsUseCase.kt": [
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/list/domain/GetLoadedPollsStatusUseCase.kt": [
+   "session.LoadedPollsStatus"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/list/data/RoomPollRepository.kt": [
+   "session.LoadedPollsStatus",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/list/data/RoomPollDataSource.kt": [
+   "session.LoadedPollsStatus",
+   "session.PollHistoryService",
+   "session.TimelineEvent",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/detail/ui/RoomPollDetailMapper.kt": [
+   "extensions.orFalse",
+   "session.MessagePollContent",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/polls/detail/domain/GetEndedPollEventIdUseCase.kt": [
+   "session.RelationType",
+   "session.isPollEnd"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/permissions/RoomPermissionsViewState.kt": [
+   "session.PowerLevelsContent",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/permissions/RoomPermissionsViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "session.EventType",
+   "session.PowerLevelsContent",
+   "session.Session",
+   "session.getRoom",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/permissions/RoomPermissionsFragment.kt": [
+   "session.UserPowerLevel",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/permissions/RoomPermissionsController.kt": [
+   "session.PowerLevelsContent",
+   "session.Role",
+   "session.RoomType",
+   "session.UserPowerLevel",
+   "session.banOrDefault",
+   "session.eventsDefaultOrDefault",
+   "session.inviteOrDefault",
+   "session.kickOrDefault",
+   "session.redactOrDefault",
+   "session.stateDefaultOrDefault",
+   "session.usersDefaultOrDefault"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/permissions/RoomPermissionsAction.kt": [
+   "session.UserPowerLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/permissions/RoleFormatter.kt": [
+   "session.Role"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/permissions/EditablePermission.kt": [
+   "session.EventType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/notifications/RoomNotificationSettingsViewState.kt": [
+   "session.RoomNotificationState",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/notifications/RoomNotificationSettingsViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "session.Session",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/notifications/RoomNotificationSettingsFragment.kt": [
+   "session.RoomNotificationState",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/notifications/RoomNotificationSettingsController.kt": [
+   "session.RoomNotificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/notifications/RoomNotificationSettingsAction.kt": [
+   "session.RoomNotificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/members/RoomMemberSummaryFilter.kt": [
+   "extensions.orFalse",
+   "session.RoomMemberSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/members/RoomMemberListViewState.kt": [
+   "session.Event",
+   "session.RoomMemberSummary",
+   "session.RoomSummary",
+   "session.UserPowerLevel",
+   "session.UserVerificationLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/members/RoomMemberListViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.CryptoDeviceInfo",
+   "session.EventType",
+   "session.Membership",
+   "session.Role",
+   "session.RoomMemberSummary",
+   "session.RoomPowerLevels",
+   "session.Session",
+   "session.UserVerificationLevel",
+   "session.getRoom",
+   "session.roomMemberQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/members/RoomMemberListFragment.kt": [
+   "session.Event",
+   "session.RoomMemberSummary",
+   "session.RoomThirdPartyInviteContent",
+   "session.toModel",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/members/RoomMemberListController.kt": [
+   "session.Event",
+   "session.Role",
+   "session.RoomMemberSummary",
+   "session.RoomThirdPartyInviteContent",
+   "session.toModel",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/banned/RoomBannedMemberListViewState.kt": [
+   "session.RoomMemberSummary",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/banned/RoomBannedMemberListViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.EventType",
+   "session.Membership",
+   "session.RoomMemberContent",
+   "session.RoomMemberSummary",
+   "session.Session",
+   "session.getRoom",
+   "session.getStateEvent",
+   "session.roomMemberQueryParams",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/banned/RoomBannedMemberListViewEvents.kt": [
+   "session.RoomMemberSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/banned/RoomBannedMemberListFragment.kt": [
+   "session.RoomMemberSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/banned/RoomBannedMemberListController.kt": [
+   "session.RoomMemberSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/banned/RoomBannedMemberListAction.kt": [
+   "session.RoomMemberSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/alias/RoomAliasViewState.kt": [
+   "session.RoomDirectoryVisibility",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/alias/RoomAliasViewModel.kt": [
+   "MatrixPatterns.getServerName",
+   "flow.flow",
+   "flow.mapOptional",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.EventType",
+   "session.RoomCanonicalAliasContent",
+   "session.Session",
+   "session.getRoom",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/alias/RoomAliasFragment.kt": [
+   "session.RoomAliasError",
+   "session.RoomDirectoryVisibility",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/alias/RoomAliasController.kt": [
+   "MatrixConstants.MatrixConstants",
+   "session.RoomAliasError",
+   "session.RoomDirectoryVisibility",
+   "session.RoomType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/alias/RoomAliasAction.kt": [
+   "session.RoomDirectoryVisibility"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomprofile/alias/detail/RoomAliasBottomSheetViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/RoomMemberProfileViewState.kt": [
+   "session.MXCrossSigningInfo",
+   "session.Membership",
+   "session.RoomPowerLevels",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/RoomMemberProfileViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.EventType",
+   "session.Membership",
+   "session.PowerLevelsContent",
+   "session.Role",
+   "session.Room",
+   "session.RoomEncryptionAlgorithm",
+   "session.RoomType",
+   "session.Session",
+   "session.User",
+   "session.UserAccountDataTypes",
+   "session.getRoom",
+   "session.roomMemberQueryParams",
+   "session.toContent",
+   "session.toModel",
+   "util.toMatrixItem",
+   "util.toOptional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/RoomMemberProfileViewEvents.kt": [
+   "session.UserPowerLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/RoomMemberProfileFragment.kt": [
+   "session.UserPowerLevel",
+   "session.UserVerificationLevel",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/RoomMemberProfileController.kt": [
+   "session.Membership",
+   "session.Session",
+   "session.UserPowerLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/RoomMemberProfileAction.kt": [
+   "session.UserPowerLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/powerlevel/EditPowerLevelDialogs.kt": [
+   "session.Role",
+   "session.UserPowerLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/devices/DeviceTrustInfoEpoxyController.kt": [
+   "extensions.orFalse",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/devices/DeviceListFragment.kt": [
+   "session.CryptoDeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/devices/DeviceListEpoxyController.kt": [
+   "extensions.orFalse",
+   "session.CryptoDeviceInfo",
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/devices/DeviceListBottomSheetViewModel.kt": [
+   "extensions.tryOrNull",
+   "flow.flow",
+   "session.CryptoDeviceInfo",
+   "session.MXCrossSigningInfo",
+   "session.Session",
+   "session.getUserOrDefault",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roommemberprofile/devices/DeviceListAction.kt": [
+   "session.CryptoDeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/UnknownRoomItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/RoomDirectoryViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "session.Membership",
+   "session.PublicRoomsFilter",
+   "session.PublicRoomsParams",
+   "session.Session",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/RoomDirectoryAction.kt": [
+   "session.PublicRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/PublicRoomsViewState.kt": [
+   "session.ChangeMembershipState",
+   "session.PublicRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/PublicRoomsFragment.kt": [
+   "session.PublicRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/PublicRoomsController.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "session.ChangeMembershipState",
+   "session.PublicRoom",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/PublicRoomItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/roompreview/RoomPreviewViewState.kt": [
+   "session.PermalinkData",
+   "session.RoomType",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/roompreview/RoomPreviewViewModel.kt": [
+   "extensions.tryOrNull",
+   "flow.flow",
+   "flow.unwrap",
+   "session.ChangeMembershipState",
+   "session.Membership",
+   "session.PeekResult",
+   "session.Session",
+   "session.SharedState",
+   "session.ThreePid",
+   "session.getRoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/roompreview/RoomPreviewNoPreviewFragment.kt": [
+   "session.RoomType",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/roompreview/RoomPreviewActivity.kt": [
+   "session.PermalinkData",
+   "session.PublicRoom",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/picker/RoomDirectoryPickerViewState.kt": [
+   "session.ThirdPartyProtocol"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/picker/RoomDirectoryPickerViewModel.kt": [
+   "session.PublicRoomsParams",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/picker/RoomDirectoryPickerController.kt": [
+   "failure.Failure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/picker/RoomDirectoryListCreator.kt": [
+   "MatrixPatterns.getServerName",
+   "session.Session",
+   "session.ThirdPartyProtocol"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/createroom/RoomAliasErrorFormatter.kt": [
+   "session.RoomAliasError"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/createroom/CreateSubSpaceController.kt": [
+   "MatrixConstants.MatrixConstants",
+   "session.CreateRoomFailure",
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/createroom/CreateRoomViewState.kt": [
+   "session.RoomJoinRules",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/createroom/CreateRoomViewModel.kt": [
+   "MatrixPatterns.getServerName",
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.CreateRoomFailure",
+   "session.CreateRoomParams",
+   "session.CreateRoomPreset",
+   "session.HomeServerCapabilities",
+   "session.PowerLevelsContent",
+   "session.RestrictedRoomPreset",
+   "session.RoomAliasError",
+   "session.RoomDirectoryVisibility",
+   "session.RoomJoinRules",
+   "session.RoomJoinRulesAllowEntry",
+   "session.RoomType",
+   "session.Session",
+   "session.getRoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/createroom/CreateRoomFragment.kt": [
+   "session.CreateRoomFailure",
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/createroom/CreateRoomController.kt": [
+   "MatrixConstants.MatrixConstants",
+   "extensions.orFalse",
+   "session.CreateRoomFailure",
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/roomdirectory/createroom/CreateRoomAction.kt": [
+   "session.RoomJoinRules"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/room/RequireActiveMembershipViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.EventType",
+   "session.Membership",
+   "session.Room",
+   "session.RoomSummary",
+   "session.Session",
+   "session.getRoom",
+   "session.getStateEvent",
+   "util.Optional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/room/ProgressiveRoomDisplayName.kt": [
+   "provider.RoomDisplayNameFallbackProvider",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/room/LeaveRoomPrompt.kt": [
+   "session.Session",
+   "session.getRoom",
+   "session.isPublic"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/room/FunctionalMembersState.kt": [
+   "query.QueryStringValue",
+   "session.StateService",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/redaction/CheckIfEventIsRedactedUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/raw/wellknown/ElementWellKnownMapper.kt": [
+   "extensions.tryOrNull",
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/raw/wellknown/ElementWellKnownExt.kt": [
+   "MatrixPatterns.getServerName",
+   "auth.SessionParams",
+   "extensions.tryOrNull",
+   "raw.RawService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/rageshake/ProgressiveFileLogger.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/rageshake/ProgressiveExceptionHandler.kt": [
+   "Matrix.Matrix"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/rageshake/BugReporter.kt": [
+   "Matrix.Matrix",
+   "util.BuildVersionSdkIntProvider",
+   "util.JsonDict",
+   "util.MatrixJsonParser",
+   "util.MimeTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/rageshake/BugReportViewModel.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/rageshake/BugReportActivity.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/qrcode/QrCodeScannerFragment.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/powerlevel/Role.kt": [
+   "flow.flow",
+   "session.Membership",
+   "session.Role",
+   "session.Room",
+   "session.RoomMemberSummary",
+   "session.roomMemberQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/popup/VerificationProgressiveAlert.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/popup/IncomingCallAlert.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/poll/create/PollTypeSelectionItem.kt": [
+   "session.PollType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/poll/create/CreatePollViewState.kt": [
+   "session.PollType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/poll/create/CreatePollViewModel.kt": [
+   "session.MessagePollContent",
+   "session.PollType",
+   "session.Session",
+   "session.getRoom",
+   "session.getTimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/poll/create/CreatePollFragment.kt": [
+   "session.PollType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/poll/create/CreatePollController.kt": [
+   "session.PollType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/poll/create/CreatePollAction.kt": [
+   "session.PollType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/pin/lockscreen/ui/LockScreenViewModel.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/pin/lockscreen/di/LockScreenModule.kt": [
+   "securestorage.SecretStoringUtils",
+   "util.BuildVersionSdkIntProvider",
+   "util.DefaultBuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/pin/lockscreen/crypto/LockScreenKeysMigrator.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/pin/lockscreen/crypto/KeyStoreCrypto.kt": [
+   "extensions.tryOrNull",
+   "securestorage.SecretStoringUtils",
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/pin/lockscreen/crypto/migrations/MissingSystemKeyMigrator.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/pin/lockscreen/crypto/migrations/LegacyPinCodeMigrator.kt": [
+   "securestorage.SecretStoringUtils",
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/pin/lockscreen/biometrics/BiometricHelper.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/permalink/PermalinkHandler.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "session.Membership",
+   "session.PermalinkData",
+   "session.PermalinkParser",
+   "session.RoomSummary",
+   "session.RoomType",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.getRootThreadEventId",
+   "session.getTimelineEvent",
+   "session.isRootThread"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/permalink/PermalinkFactory.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/StartAuthenticationFlowUseCase.kt": [
+   "auth.AuthenticationService",
+   "auth.HomeServerConnectionConfig",
+   "auth.LoginFlowResult",
+   "auth.LoginFlowTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/RegistrationWizardActionDelegate.kt": [
+   "auth.AuthenticationService",
+   "auth.FlowResponse",
+   "auth.FlowResult",
+   "auth.RegisterThreePid",
+   "auth.RegistrationResult as MatrixRegistrationResult",
+   "auth.RegistrationWizard",
+   "auth.Success",
+   "failure.is401",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/RegistrationActionHandler.kt": [
+   "auth.AuthenticationService",
+   "auth.FlowResult",
+   "auth.RegisterThreePid",
+   "auth.Stage",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/OnboardingViewModel.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "MatrixPatterns.getServerName",
+   "auth.AuthenticationService",
+   "auth.HomeServerConnectionConfig",
+   "auth.HomeServerHistoryService",
+   "auth.LoginWizard",
+   "auth.RegistrationAvailability",
+   "auth.RegistrationWizard",
+   "auth.SSOAction",
+   "auth.SsoIdentityProvider",
+   "failure.Failure",
+   "failure.isHomeserverConnectionError",
+   "failure.isHomeserverUnavailable",
+   "failure.isUnrecognisedCertificate",
+   "network.Fingerprint",
+   "session.Session",
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/OnboardingViewEvents.kt": [
+   "auth.Stage",
+   "failure.Failure as SdkFailure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/OnboardingAction.kt": [
+   "auth.Credentials",
+   "network.Fingerprint"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/DirectLoginUseCase.kt": [
+   "MatrixPatterns.getServerName",
+   "auth.AuthenticationService",
+   "auth.HomeServerConnectionConfig",
+   "auth.WellknownResult",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/AuthenticationDescription.kt": [
+   "auth.SsoIdentityProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/MatrixOrgRegistrationStagesComparator.kt": [
+   "auth.Stage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/LoginErrorParser.kt": [
+   "failure.isHomeserverUnavailable",
+   "failure.isInvalidPassword",
+   "failure.isInvalidUsername",
+   "failure.isLoginEmailUnknown"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthWebFragment.kt": [
+   "auth.Credentials",
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthVariant.kt": [
+   "auth.Stage",
+   "auth.toLocalizedLoginTerms",
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthSignUpSignInSelectionFragment.kt": [
+   "auth.SSOAction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthServerUrlFormFragment.kt": [
+   "failure.Failure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthResetPasswordMailConfirmationFragment.kt": [
+   "failure.is401"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthResetPasswordFragment.kt": [
+   "extensions.isEmail"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthResetPasswordEntryFragment.kt": [
+   "failure.isMissingEmailVerification"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthResetPasswordEmailEntryFragment.kt": [
+   "extensions.isEmail"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthPhoneEntryFragment.kt": [
+   "auth.RegisterThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthPhoneConfirmationFragment.kt": [
+   "failure.Failure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthLoginFragment.kt": [
+   "auth.SSOAction",
+   "failure.isInvalidPassword",
+   "failure.isInvalidUsername",
+   "failure.isLoginEmailUnknown",
+   "failure.isRegistrationDisabled",
+   "failure.isUsernameInUse",
+   "failure.isWeakPassword"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthGenericTextInputFormFragment.kt": [
+   "auth.RegisterThreePid",
+   "extensions.isEmail",
+   "failure.Failure",
+   "failure.is401"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthEmailEntryFragment.kt": [
+   "auth.RegisterThreePid",
+   "extensions.isEmail"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthCombinedServerSelectionFragment.kt": [
+   "failure.isHomeserverUnavailable"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthCombinedRegisterFragment.kt": [
+   "auth.SSOAction",
+   "failure.isHomeserverUnavailable",
+   "failure.isInvalidPassword",
+   "failure.isInvalidUsername",
+   "failure.isLoginEmailUnknown",
+   "failure.isRegistrationDisabled",
+   "failure.isUsernameInUse",
+   "failure.isWeakPassword"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthCombinedLoginFragment.kt": [
+   "auth.SSOAction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthChooseProfilePictureFragment.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/FtueAuthCaptchaFragment.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/CaptchaWebview.kt": [
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/AbstractSSOFtueAuthFragment.kt": [
+   "auth.SSOAction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/terms/FtueAuthTermsFragment.kt": [
+   "auth.LocalizedFlowDataLoginTerms"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/onboarding/ftueauth/terms/FtueAuthLegacyStyleTermsFragment.kt": [
+   "auth.LocalizedFlowDataLoginTerms"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/PushRuleTriggerListener.kt": [
+   "session.PushEvents",
+   "session.PushRuleService",
+   "session.Session",
+   "session.getActions"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/OutdatedEventDetector.kt": [
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/NotificationEventPersistence.kt": [
+   "Matrix.Matrix"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/NotificationDrawerManager.kt": [
+   "session.ContentUrlResolver",
+   "session.Session",
+   "session.getUserOrDefault",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/NotificationBroadcastReceiver.kt": [
+   "extensions.tryOrNull",
+   "session.ReadService",
+   "session.Room",
+   "session.Session",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/NotificationAction.kt": [
+   "session.Action"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/NotifiableMessageEvent.kt": [
+   "session.EventType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/NotifiableEventResolver.kt": [
+   "extensions.orFalse",
+   "session.ContentUrlResolver",
+   "session.ElementCallNotifyContent",
+   "session.Event",
+   "session.EventType",
+   "session.MXCryptoError",
+   "session.Membership",
+   "session.MessageWithAttachmentContent",
+   "session.OlmDecryptionResult",
+   "session.RoomMemberContent",
+   "session.SenderInfo",
+   "session.Session",
+   "session.TimelineEvent",
+   "session.getEditedEventId",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.getRootThreadEventId",
+   "session.getTimelineEvent",
+   "session.getUserOrDefault",
+   "session.isEdition",
+   "session.isImageMessage",
+   "session.isUserMentioned",
+   "session.supportsNotification",
+   "session.toModel",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/NotifiableEventProcessor.kt": [
+   "session.EventType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/notifications/FilteredEventDetector.kt": [
+   "session.TimelineEvent",
+   "session.asMessageAudioEvent",
+   "session.getRoom",
+   "session.getTimelineEvent",
+   "session.isVoiceMessage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/navigation/Navigator.kt": [
+   "session.PermalinkData",
+   "session.PublicRoom",
+   "session.TermsService",
+   "session.Widget",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/navigation/DefaultNavigator.kt": [
+   "session.PermalinkData",
+   "session.PublicRoom",
+   "session.RoomSummary",
+   "session.SasVerificationTransaction",
+   "session.TermsService",
+   "session.Widget",
+   "session.WidgetType",
+   "session.getRoom",
+   "session.getRoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/VideoContentRenderer.kt": [
+   "session.ElementToDecrypt"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/RoomEventsAttachmentProvider.kt": [
+   "extensions.tryOrNull",
+   "session.FileService",
+   "session.MessageContent",
+   "session.MessageImageContent",
+   "session.MessageStickerContent",
+   "session.MessageVideoContent",
+   "session.MessageWithAttachmentContent",
+   "session.TimelineEvent",
+   "session.getFileUrl",
+   "session.getThumbnailUrl",
+   "session.toElementToDecrypt",
+   "session.toModel",
+   "util.MimeTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/ProgressiveAttachmentViewer.kt": [
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/ProgressiveAttachmentViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/ImageContentRenderer.kt": [
+   "extensions.tryOrNull",
+   "session.ContentUrlResolver",
+   "session.ElementToDecrypt",
+   "session.PreviewUrlData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/DataAttachmentRoomProvider.kt": [
+   "extensions.tryOrNull",
+   "session.FileService",
+   "session.Room",
+   "session.TimelineEvent",
+   "session.getTimelineEvent",
+   "util.MimeTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/BaseAttachmentProvider.kt": [
+   "session.FileService",
+   "session.TimelineEvent",
+   "session.isVideoMessage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/AttachmentProviderFactory.kt": [
+   "session.Room",
+   "session.Session",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/media/domain/usecase/DownloadMediaUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/matrixto/SpaceCardRenderer.kt": [
+   "session.RoomSummary",
+   "session.SpaceChildInfo",
+   "session.User",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/matrixto/MatrixToRoomSpaceFragment.kt": [
+   "session.Membership",
+   "session.RoomType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/matrixto/MatrixToBottomSheetViewModel.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "extensions.tryOrNull",
+   "session.JoinSpaceResult",
+   "session.Membership",
+   "session.PeekResult",
+   "session.PermalinkData",
+   "session.Session",
+   "session.User",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/matrixto/MatrixToBottomSheetState.kt": [
+   "session.Membership",
+   "session.PermalinkData",
+   "session.PermalinkParser",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/matrixto/MatrixToBottomSheet.kt": [
+   "session.PermalinkData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/matrixto/MatrixToAction.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/SupportedStage.kt": [
+   "auth.Stage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/SsoState.kt": [
+   "auth.SsoIdentityProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/SocialLoginButtonsView.kt": [
+   "auth.SsoIdentityProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginWebFragment.kt": [
+   "auth.Credentials",
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginWaitForEmailFragment.kt": [
+   "failure.is401"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginViewModel.kt": [
+   "MatrixPatterns.getServerName",
+   "auth.AuthenticationService",
+   "auth.FlowResult",
+   "auth.HomeServerConnectionConfig",
+   "auth.HomeServerHistoryService",
+   "auth.LoginFlowTypes",
+   "auth.LoginWizard",
+   "auth.RegistrationResult",
+   "auth.RegistrationWizard",
+   "auth.SSOAction",
+   "auth.Stage",
+   "auth.WellknownResult",
+   "failure.Failure",
+   "failure.MatrixIdFailure",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginViewEvents.kt": [
+   "auth.FlowResult"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginSplashFragment.kt": [
+   "failure.Failure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginSignUpSignInSelectionFragment.kt": [
+   "auth.SSOAction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginServerUrlFormFragment.kt": [
+   "failure.Failure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginResetPasswordMailConfirmationFragment.kt": [
+   "failure.is401"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginResetPasswordFragment.kt": [
+   "extensions.isEmail"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginGenericTextInputFormFragment.kt": [
+   "auth.RegisterThreePid",
+   "extensions.isEmail",
+   "failure.Failure",
+   "failure.is401"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginFragment.kt": [
+   "auth.SSOAction",
+   "failure.Failure",
+   "failure.MatrixError",
+   "failure.isInvalidPassword"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginCaptchaFragment.kt": [
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginActivity.kt": [
+   "auth.FlowResult",
+   "auth.SSOAction",
+   "auth.Stage",
+   "auth.toLocalizedLoginTerms",
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/LoginAction.kt": [
+   "auth.Credentials",
+   "auth.RegisterThreePid",
+   "auth.SsoIdentityProvider",
+   "network.Fingerprint"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/JavascriptResponse.kt": [
+   "auth.Credentials"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/HomeServerConnectionConfigFactory.kt": [
+   "auth.HomeServerConnectionConfig",
+   "network.Fingerprint"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/AbstractSSOLoginFragment.kt": [
+   "auth.SSOAction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/AbstractLoginFragment.kt": [
+   "failure.Failure",
+   "failure.MatrixError"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/terms/PolicyController.kt": [
+   "auth.LocalizedFlowDataLoginTerms"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/terms/LoginTermsViewState.kt": [
+   "auth.LocalizedFlowDataLoginTerms"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/terms/LoginTermsFragment.kt": [
+   "auth.LocalizedFlowDataLoginTerms"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/login/terms/LocalizedFlowDataLoginTermsChecked.kt": [
+   "auth.LocalizedFlowDataLoginTerms"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/UrlMapProvider.kt": [
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/LocationSharingViewState.kt": [
+   "extensions.orTrue",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/LocationSharingViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "session.EventType",
+   "session.Session",
+   "session.getRoom",
+   "session.getUserOrDefault",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/LocationSharingFragment.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/LocationData.kt": [
+   "session.MessageLocationContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/preview/LocationPreviewViewModel.kt": [
+   "session.Session",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/StopLiveLocationShareUseCase.kt": [
+   "session.UpdateLiveLocationShareResult",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/GetLiveLocationShareSummaryUseCase.kt": [
+   "session.LiveLocationShareAggregatedSummary",
+   "session.Session",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/tracking/LocationSharingAndroidService.kt": [
+   "session.Session",
+   "session.UpdateLiveLocationShareResult",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/map/UserLiveLocationViewStateMapper.kt": [
+   "session.LiveLocationShareAggregatedSummary",
+   "session.getRoom",
+   "session.getUserOrDefault",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/map/LiveLocationUserItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/map/LiveLocationMapViewState.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/map/LiveLocationMapViewModel.kt": [
+   "session.Session",
+   "session.UpdateLiveLocationShareResult"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/live/map/GetListOfUserLiveLocationUseCase.kt": [
+   "session.Session",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/location/domain/usecase/CompareLocationsUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/link/LinkHandlerActivity.kt": [
+   "session.PermalinkService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/lifecycle/ProgressiveLifecycleCallbacks.kt": [
+   "extensions.tryOrNull",
+   "util.getPackageInfoCompat"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/invite/ProgressiveInviteView.kt": [
+   "session.ChangeMembershipState",
+   "session.RoomMemberSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/invite/InvitesAcceptor.kt": [
+   "extensions.orFalse",
+   "failure.Failure",
+   "flow.flow",
+   "session.ChangeMembershipState",
+   "session.Membership",
+   "session.Session",
+   "session.getRoom",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/invite/InviteUsersToRoomViewModel.kt": [
+   "session.Session",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/invite/InviteUsersToRoomActivity.kt": [
+   "failure.Failure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/invite/InviteButtonStateBinder.kt": [
+   "session.ChangeMembershipState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/importer/ImporterService.kt": [
+   "session.KeysVersionResult",
+   "session.getUser",
+   "session.toKeysVersionResult"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/html/PillsPostProcessor.kt": [
+   "extensions.orFalse",
+   "session.PermalinkData",
+   "session.PermalinkParser",
+   "session.RoomSummary",
+   "session.getRoomSummary",
+   "session.getUser",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/html/PillImageSpan.kt": [
+   "extensions.orTrue",
+   "session.MatrixItemSpan",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/html/EventHtmlRenderer.kt": [
+   "MatrixUrls.isMxcUrl"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/UserColorAccountDataViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "session.Session",
+   "session.UserAccountDataTypes",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/UnreadMessagesSharedViewModel.kt": [
+   "query.SpaceFilter",
+   "session.Membership",
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSortOrder",
+   "session.Session",
+   "session.roomSummaryQueryParams",
+   "session.spaceSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/UnknownDeviceDetectorSharedViewModel.kt": [
+   "extensions.tryOrNull",
+   "flow.flow",
+   "session.DeviceInfo",
+   "session.Session",
+   "session.getUserOrDefault",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/ShortcutsHandler.kt": [
+   "extensions.tryOrNull",
+   "flow.flow",
+   "session.Membership",
+   "session.RoomSortOrder",
+   "session.RoomSummary",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/ShortcutCreator.kt": [
+   "session.RoomSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/NotificationPermissionManager.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/NewHomeDetailFragment.kt": [
+   "session.DeviceInfo",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/InitSyncStepFormatter.kt": [
+   "session.InitialSyncStep"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeSharedActionViewModel.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeDrawerFragment.kt": [
+   "session.Session",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeDetailViewState.kt": [
+   "session.RoomSummary",
+   "session.SyncRequestState",
+   "session.SyncState",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeDetailViewModel.kt": [
+   "flow.flow",
+   "query.RoomCategoryFilter",
+   "query.toActiveSpaceOrNoFilter",
+   "query.toActiveSpaceOrOrphanRooms",
+   "session.Membership",
+   "session.NewSessionListener",
+   "session.RoomSortOrder",
+   "session.Session",
+   "session.SyncRequestState",
+   "session.roomSummaryQueryParams",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeDetailFragment.kt": [
+   "session.DeviceInfo",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeActivityViewState.kt": [
+   "session.SyncRequestState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeActivityViewModel.kt": [
+   "auth.LoginFlowTypes",
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserInteractiveAuthInterceptor",
+   "auth.UserPasswordAuth",
+   "auth.nextUncompletedStage",
+   "extensions.tryOrNull",
+   "flow.flow",
+   "raw.RawService",
+   "session.CrossSigningService",
+   "session.Membership",
+   "session.RuleIds",
+   "session.SyncRequestState",
+   "session.getUserOrDefault",
+   "session.roomSummaryQueryParams",
+   "settings.LightweightSettingsStorage",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeActivityViewEvents.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/HomeActivity.kt": [
+   "session.InitialSyncStrategy",
+   "session.PermalinkService",
+   "session.SyncRequestState",
+   "session.initialSyncStrategy",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/GetSpacesNotificationBadgeStateUseCase.kt": [
+   "query.QueryStringValue",
+   "query.SpaceFilter",
+   "session.Membership",
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSummary",
+   "session.spaceSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/CurrentSpaceSuggestedRoomListDataSource.kt": [
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/AvatarRenderer.kt": [
+   "auth.LoginProfileInfo",
+   "extensions.tryOrNull",
+   "session.ContentUrlResolver",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/typing/TypingHelper.kt": [
+   "session.SenderInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/ThreadsManager.kt": [
+   "settings.LightweightSettingsStorage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/list/views/ThreadListFragment.kt": [
+   "failure.is400",
+   "failure.is404",
+   "session.ThreadSummary",
+   "session.TimelineEvent",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/list/viewmodel/ThreadListViewState.kt": [
+   "session.ThreadTimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/list/viewmodel/ThreadListViewModel.kt": [
+   "flow.flow",
+   "session.FetchThreadsResult",
+   "session.Session",
+   "session.ThreadFilter",
+   "session.ThreadSummary",
+   "session.ThreadTimelineEvent",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/list/viewmodel/ThreadListPagedController.kt": [
+   "session.ThreadNotificationState",
+   "session.ThreadSummary",
+   "util.toMatrixItem",
+   "util.toMatrixItemOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/list/viewmodel/ThreadListController.kt": [
+   "session.ThreadNotificationState",
+   "session.TimelineEvent",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/list/model/ThreadListItem.kt": [
+   "session.ThreadNotificationState",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/arguments/ThreadTimelineArgs.kt": [
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/threads/arguments/ThreadListArgs.kt": [
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/SuggestedRoomInfo.kt": [
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/SpaceChildInfoItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomsSection.kt": [
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomSummaryPagedController.kt": [
+   "session.ChangeMembershipState",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomSummaryListController.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomSummaryItemFactory.kt": [
+   "extensions.orFalse",
+   "session.ChangeMembershipState",
+   "session.Membership",
+   "session.RoomSummary",
+   "session.SpaceChildInfo",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomSummaryItem.kt": [
+   "session.RoomEncryptionTrustLevel",
+   "session.UserPresence",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomSummaryCenteredItem.kt": [
+   "session.RoomEncryptionTrustLevel",
+   "session.UserPresence",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListViewState.kt": [
+   "session.ChangeMembershipState",
+   "session.RoomSummary",
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "query.QueryStringValue",
+   "session.ChangeMembershipState",
+   "session.RoomLocalEcho",
+   "session.RoomTag",
+   "session.Session",
+   "session.UpdatableLivePageResult",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.roomSummaryQueryParams",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListViewEvents.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListSectionBuilder.kt": [
+   "extensions.tryOrNull",
+   "query.RoomCategoryFilter",
+   "query.RoomTagQueryFilter",
+   "query.SpaceFilter",
+   "query.toActiveSpaceOrNoFilter",
+   "query.toActiveSpaceOrOrphanRooms",
+   "session.Membership",
+   "session.RoomAggregateNotificationCount",
+   "session.RoomSummaryQueryParams",
+   "session.Session",
+   "session.UpdatableLivePageResult",
+   "session.getRoomSummary",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListNameFilter.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListListener.kt": [
+   "session.RoomSummary",
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListFragment.kt": [
+   "extensions.orTrue",
+   "session.RoomNotificationState",
+   "session.RoomSummary",
+   "session.RoomTag",
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomListAction.kt": [
+   "session.RoomNotificationState",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/RoomInvitationItem.kt": [
+   "session.ChangeMembershipState",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/ChronologicalRoomComparator.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/BreadcrumbsRoomComparator.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/AlphabeticalRoomComparator.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/usecase/GetLatestPreviewableEventUseCase.kt": [
+   "extensions.orFalse",
+   "session.EventType",
+   "session.Room",
+   "session.RoomSummary",
+   "session.TimelineEvent",
+   "session.asMessageAudioEvent",
+   "session.getRoom",
+   "session.getTimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/RoomSummaryRoomListDiffCallback.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/HomeRoomListViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "query.QueryStringValue",
+   "query.RoomCategoryFilter",
+   "query.RoomTagQueryFilter",
+   "query.toActiveSpaceOrNoFilter",
+   "session.Membership",
+   "session.RoomLocalEcho",
+   "session.RoomSortOrder",
+   "session.RoomSummary",
+   "session.RoomSummaryQueryParams",
+   "session.RoomTag",
+   "session.Session",
+   "session.UpdatableLivePageResult",
+   "session.getRoom",
+   "session.getUserOrDefault",
+   "session.roomSummaryQueryParams",
+   "util.Optional",
+   "util.toMatrixItem",
+   "util.toOption"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/HomeRoomListViewEvents.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/HomeRoomListFragment.kt": [
+   "session.RoomNotificationState",
+   "session.RoomSummary",
+   "session.RoomTag",
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/HomeRoomListAction.kt": [
+   "session.RoomNotificationState",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/HomeLayoutPreferencesStore.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/HomeFilteredRoomsController.kt": [
+   "session.ChangeMembershipState",
+   "session.ResultBoundaries",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/release/ReleaseNotesPreferencesStore.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/invites/InvitesViewState.kt": [
+   "session.ChangeMembershipState",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/invites/InvitesViewModel.kt": [
+   "extensions.orFalse",
+   "session.ChangeMembershipState",
+   "session.Membership",
+   "session.RoomSortOrder",
+   "session.RoomSummaryQueryParams",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/invites/InvitesViewEvents.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/invites/InvitesFragment.kt": [
+   "session.RoomSummary",
+   "session.SpaceChildInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/invites/InvitesController.kt": [
+   "session.ChangeMembershipState",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/invites/InvitesAction.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/header/RoomsHeadersData.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/header/RecentRoomItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/home/header/HomeRoomsHeadersController.kt": [
+   "session.RoomSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/actions/RoomListQuickActionsEpoxyController.kt": [
+   "session.RoomNotificationState",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/list/actions/RoomListQuickActionsBottomSheet.kt": [
+   "session.RoomNotificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/TimelineViewModel.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "MatrixUrls.isMxcUrl",
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "flow.flow",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "raw.RawService",
+   "session.ChangeMembershipState",
+   "session.EVerificationState",
+   "session.EventType",
+   "session.FileService",
+   "session.LocalRoomCreationState",
+   "session.MXCryptoError",
+   "session.Membership",
+   "session.MessageContent",
+   "session.MessageWithAttachmentContent",
+   "session.ReadService",
+   "session.RelationDefaultContent",
+   "session.RelationType",
+   "session.Room",
+   "session.RoomLocalEcho",
+   "session.RoomMemberSummary",
+   "session.RoomSummary",
+   "session.RoomTombstoneContent",
+   "session.Session",
+   "session.SyncRequestState",
+   "session.ThreadNotificationBadgeState",
+   "session.ThreadNotificationState",
+   "session.Timeline",
+   "session.TimelineEvent",
+   "session.UpdateLiveLocationShareResult",
+   "session.WidgetType",
+   "session.WithHeldCode",
+   "session.getFileUrl",
+   "session.getRoom",
+   "session.getStateEvent",
+   "session.getTimelineEvent",
+   "session.isAttachmentMessage",
+   "session.isLiveLocation",
+   "session.isTextMessage",
+   "session.roomMemberQueryParams",
+   "session.toContent",
+   "session.toModel",
+   "util.toOptional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/TimelineFragment.kt": [
+   "session.EncryptedEventContent",
+   "session.EventType",
+   "session.Membership",
+   "session.MessageAudioContent",
+   "session.MessageBeaconInfoContent",
+   "session.MessageImageInfoContent",
+   "session.MessageLocationContent",
+   "session.MessageStickerContent",
+   "session.MessageTextContent",
+   "session.MessageVerificationRequestContent",
+   "session.MessageVideoContent",
+   "session.MessageWithAttachmentContent",
+   "session.RoomSummary",
+   "session.SendState",
+   "session.Session",
+   "session.Timeline",
+   "session.TimelineEvent",
+   "session.Widget",
+   "session.WidgetType",
+   "session.WithHeldCode",
+   "session.toModel",
+   "util.MatrixItem",
+   "util.MimeTypes",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/ScrollOnNewMessageCallback.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/RoomDetailViewState.kt": [
+   "extensions.orFalse",
+   "session.ChangeMembershipState",
+   "session.Event",
+   "session.RoomLocalEcho",
+   "session.RoomMemberSummary",
+   "session.RoomSummary",
+   "session.SenderInfo",
+   "session.SyncRequestState",
+   "session.SyncState",
+   "session.ThreadNotificationBadgeState",
+   "session.Widget",
+   "session.WidgetType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/RoomDetailViewEvents.kt": [
+   "session.Widget",
+   "session.WithHeldCode",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/RoomDetailAction.kt": [
+   "session.ContentAttachmentData",
+   "session.MessageStickerContent",
+   "session.MessageWithAttachmentContent",
+   "session.Timeline",
+   "session.TimelineEvent",
+   "session.Widget",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/ChatEffectManager.kt": [
+   "session.MessageContent",
+   "session.MessageType",
+   "session.TimelineEvent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/AutoCompleter.kt": [
+   "session.PermalinkService",
+   "session.RoomSummary",
+   "session.Session",
+   "util.MatrixItem",
+   "util.toEveryoneInRoomMatrixItem",
+   "util.toMatrixItem",
+   "util.toRoomAliasMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/widget/RoomWidgetsController.kt": [
+   "session.Widget"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/widget/RoomWidgetsBottomSheet.kt": [
+   "session.Widget"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/widget/RoomWidgetsBannerView.kt": [
+   "session.Widget"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/widget/RoomWidgetItem.kt": [
+   "extensions.tryOrNull",
+   "session.Widget"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/upgrade/UpgradeRoomViewModelTask.kt": [
+   "extensions.tryOrNull",
+   "session.Session",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/upgrade/MigrateRoomViewModel.kt": [
+   "session.Session",
+   "session.getRoom",
+   "session.getRoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/TimelineEventController.kt": [
+   "session.EventType",
+   "session.Membership",
+   "session.MessageAudioContent",
+   "session.MessageImageInfoContent",
+   "session.MessageVideoContent",
+   "session.ReadReceipt",
+   "session.RoomMemberContent",
+   "session.RoomSummary",
+   "session.Session",
+   "session.Timeline",
+   "session.TimelineEvent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/MessageColorProvider.kt": [
+   "session.SendState",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/url/PreviewUrlView.kt": [
+   "session.PreviewUrlData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/url/PreviewUrlUiState.kt": [
+   "session.PreviewUrlData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/url/PreviewUrlRetriever.kt": [
+   "cache.CacheStrategy",
+   "session.Session",
+   "session.TimelineEvent",
+   "session.getLatestEventId"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/tools/EventRenderingTools.kt": [
+   "session.MatrixLinkify",
+   "session.MatrixPermalinkSpan"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/style/TimelineMessageLayoutFactory.kt": [
+   "session.EventType",
+   "session.MessageContent",
+   "session.MessageType",
+   "session.MessageVerificationRequestContent",
+   "session.Session",
+   "session.TimelineEvent",
+   "session.isEdition",
+   "session.isRootThread"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/render/ProcessBodyOfReplyToEventUseCase.kt": [
+   "session.Event",
+   "session.MessagePollContent",
+   "session.ReplyToContent",
+   "session.getLastMessageContent",
+   "session.getPollQuestion",
+   "session.getRelationContent",
+   "session.getRoom",
+   "session.getTimelineEvent",
+   "session.isAudioMessage",
+   "session.isFileMessage",
+   "session.isImageMessage",
+   "session.isLiveLocation",
+   "session.isPollEnd",
+   "session.isPollStart",
+   "session.isSticker",
+   "session.isVideoMessage",
+   "session.isVoiceMessage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/render/EventTextRenderer.kt": [
+   "extensions.orFalse",
+   "session.PermalinkData",
+   "session.PermalinkParser",
+   "session.RoomSummary",
+   "session.RoomType",
+   "session.getRoomSummary",
+   "session.getUserOrDefault",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/readreceipts/ReadReceiptsCache.kt": [
+   "session.ReadReceipt"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/readreceipts/DisplayReadReceiptsController.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/readreceipts/DisplayReadReceiptItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/reactions/ViewReactionsViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "session.Session",
+   "session.getRoom",
+   "session.getTimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/merged/MergedTimelines.kt": [
+   "extensions.tryOrNull",
+   "session.SenderInfo",
+   "session.Timeline",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/VerificationRequestItem.kt": [
+   "session.VerificationService",
+   "session.VerificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/TypingItem.kt": [
+   "session.SenderInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/MessageTextItem.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/MessageInformationData.kt": [
+   "session.SendState",
+   "session.VerificationState",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/MessageImageVideoItem.kt": [
+   "session.MessageType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/MergedRoomCreationItem.kt": [
+   "extensions.orFalse",
+   "session.RoomLocalEcho",
+   "session.RoomSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/ElementCallTileTimelineItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/CallTileTimelineItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/BasedMergedItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/AbsMessageVoiceBroadcastItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/AbsMessageLocationItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/AbsMessageItem.kt": [
+   "session.ThreadDetails",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/item/AbsBaseMessageItem.kt": [
+   "session.SendState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/image/ImageContentRendererFactory.kt": [
+   "session.MessageImageContent",
+   "session.MessageVideoContent",
+   "session.TimelineEvent",
+   "session.getFileUrl",
+   "session.getThumbnailUrl",
+   "session.isImageMessage",
+   "session.isVideoMessage",
+   "session.toElementToDecrypt",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/TimelineVisibilityStateChangedListeners.kt": [
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/TimelineSettingsFactory.kt": [
+   "session.TimelineSettings"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/TimelineEventsGroups.kt": [
+   "extensions.orFalse",
+   "session.CallInviteContent",
+   "session.EventType",
+   "session.RelationType",
+   "session.TimelineEvent",
+   "session.WidgetContent",
+   "session.asMessageAudioEvent",
+   "session.getRelationContent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/TimelineEventVisibilityHelper.kt": [
+   "session.Event",
+   "session.EventType",
+   "session.Membership",
+   "session.RelationType",
+   "session.RoomLocalEcho",
+   "session.RoomMemberContent",
+   "session.TimelineEvent",
+   "session.asMessageAudioEvent",
+   "session.getRelationContent",
+   "session.getRootThreadEventId",
+   "session.isThread",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/TimelineEventDiffUtilCallback.kt": [
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/TimelineDisplayableEvents.kt": [
+   "session.EventType",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/TimelineControllerInterceptorHelper.kt": [
+   "session.Timeline"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/ReactionsSummaryFactory.kt": [
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/PollResponseDataFactory.kt": [
+   "session.PollResponseAggregatedSummary",
+   "session.TimelineEvent",
+   "session.getRelationContent",
+   "session.getTimelineEvent",
+   "session.isPollEnd"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/MessageItemAttributesFactory.kt": [
+   "session.ThreadDetails"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/MessageInformationDataFactory.kt": [
+   "extensions.orFalse",
+   "session.Event",
+   "session.EventType",
+   "session.MessageType",
+   "session.MessageVerificationRequestContent",
+   "session.MessageVerificationState",
+   "session.ReferencesAggregatedContent",
+   "session.RoomSummary",
+   "session.SendState",
+   "session.Session",
+   "session.TimelineEvent",
+   "session.VerificationState",
+   "session.getMsgType",
+   "session.hasBeenEdited",
+   "session.isAttachmentMessage",
+   "session.isSticker",
+   "session.toModel",
+   "session.toValidDecryptedEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/MatrixItemColorProvider.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/LocationPinProvider.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/ContentUploadStateTrackerBinder.kt": [
+   "session.ContentUploadStateTracker",
+   "session.SendState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/helper/ContentDownloadStateTrackerBinder.kt": [
+   "session.ContentDownloadStateTracker"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/format/RoomHistoryVisibilityFormatter.kt": [
+   "session.RoomHistoryVisibility"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/format/NoticeEventFormatter.kt": [
+   "session.CallInviteContent",
+   "session.Event",
+   "session.RoomAvatarContent",
+   "session.RoomMemberContent",
+   "session.RoomNameContent",
+   "session.RoomTopicContent",
+   "session.TimelineEvent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/format/EventDetailsFormatter.kt": [
+   "session.Event",
+   "session.MessageAudioContent",
+   "session.MessageFileContent",
+   "session.MessageImageContent",
+   "session.MessageVideoContent",
+   "session.isAudioMessage",
+   "session.isFileMessage",
+   "session.isImageMessage",
+   "session.isPollEnd",
+   "session.isPollStart",
+   "session.isVideoMessage",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/format/DisplayableEventFormatter.kt": [
+   "session.Event",
+   "session.EventType",
+   "session.MessageAudioContent",
+   "session.MessageContent",
+   "session.MessagePollContent",
+   "session.MessageTextContent",
+   "session.MessageType",
+   "session.ReactionContent",
+   "session.TimelineEvent",
+   "session.asMessageAudioEvent",
+   "session.getTextDisplayableContent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/WidgetItemFactory.kt": [
+   "session.WidgetContent",
+   "session.WidgetType",
+   "session.toModel",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/VoiceBroadcastItemFactory.kt": [
+   "session.Session",
+   "session.getRoom",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/VerificationItemFactory.kt": [
+   "session.CancelCode",
+   "session.EventType",
+   "session.MessageRelationContent",
+   "session.MessageVerificationCancelContent",
+   "session.RelationType",
+   "session.Session",
+   "session.VerificationState",
+   "session.getRoom",
+   "session.getTimelineEvent",
+   "session.safeValueOf",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/TimelineItemFactoryParams.kt": [
+   "session.Event",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/TimelineItemFactory.kt": [
+   "session.EventType",
+   "session.RelationType",
+   "session.Session",
+   "session.TimelineEvent",
+   "session.getRelationContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/TimelineFactory.kt": [
+   "session.EventType",
+   "session.Room",
+   "session.Session",
+   "session.Timeline",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/RoomCreateItemFactory.kt": [
+   "session.RoomCreateContent",
+   "session.Session",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/ReadReceiptsItemFactory.kt": [
+   "session.ReadReceipt",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/PollOptionViewStateFactory.kt": [
+   "session.PollCreationInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/PollItemViewStateFactory.kt": [
+   "extensions.orFalse",
+   "session.MessagePollContent",
+   "session.PollCreationInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/NoticeItemFactory.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/MessageItemFactory.kt": [
+   "MatrixUrls.isMxcUrl",
+   "session.EncryptedEventContent",
+   "session.MessageAudioContent",
+   "session.MessageBeaconInfoContent",
+   "session.MessageContent",
+   "session.MessageContentWithFormattedBody",
+   "session.MessageEmoteContent",
+   "session.MessageEndPollContent",
+   "session.MessageFileContent",
+   "session.MessageImageInfoContent",
+   "session.MessageLocationContent",
+   "session.MessageNoticeContent",
+   "session.MessagePollContent",
+   "session.MessageTextContent",
+   "session.MessageType",
+   "session.MessageVerificationRequestContent",
+   "session.MessageVideoContent",
+   "session.RelationType",
+   "session.ReplyToContent",
+   "session.Session",
+   "session.asMessageAudioEvent",
+   "session.getFileUrl",
+   "session.getRelationContent",
+   "session.getThumbnailUrl",
+   "session.getTimelineEvent",
+   "session.isThread",
+   "session.toElementToDecrypt",
+   "session.toModel",
+   "settings.LightweightSettingsStorage",
+   "util.MimeTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/MergedHeaderItemFactory.kt": [
+   "crypto.MXCRYPTO_ALGORITHM_MEGOLM",
+   "extensions.orFalse",
+   "session.EncryptionEventContent",
+   "session.Event",
+   "session.EventType",
+   "session.RoomCreateContent",
+   "session.TimelineEvent",
+   "session.getRoom",
+   "session.getRoomPowerLevels",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/LiveLocationShareMessageItemFactory.kt": [
+   "session.Session",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/EncryptionItemFactory.kt": [
+   "crypto.MXCRYPTO_ALGORITHM_MEGOLM",
+   "extensions.orFalse",
+   "session.EncryptionEventContent",
+   "session.RoomLocalEcho",
+   "session.Session",
+   "session.getRoomSummary",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/EncryptedItemFactory.kt": [
+   "session.EncryptedEventContent",
+   "session.EventType",
+   "session.MXCryptoError",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/ElementCallItemFactory.kt": [
+   "session.ElementCallNotifyContent",
+   "session.EventType",
+   "session.RoomSummary",
+   "session.Session",
+   "session.toModel",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/factory/CallItemFactory.kt": [
+   "session.EventType",
+   "session.RoomSummary",
+   "session.Session",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/edithistory/ViewEditHistoryViewState.kt": [
+   "session.Event"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/edithistory/ViewEditHistoryViewModel.kt": [
+   "session.MXCryptoError",
+   "session.OlmDecryptionResult",
+   "session.Session",
+   "session.getRoom",
+   "session.isReply"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/edithistory/ViewEditHistoryEpoxyController.kt": [
+   "session.Event",
+   "session.MessageTextContent",
+   "session.toModel",
+   "util.TextContent",
+   "util.extractUsefulTextFromReply"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/action/MessageActionsViewModel.kt": [
+   "extensions.orFalse",
+   "flow.flow",
+   "flow.unwrap",
+   "session.EventType",
+   "session.KeysBackupState",
+   "session.MessageContent",
+   "session.MessageFormat",
+   "session.MessagePollContent",
+   "session.MessageTextContent",
+   "session.MessageType",
+   "session.MessageVerificationRequestContent",
+   "session.MessageWithAttachmentContent",
+   "session.SendState",
+   "session.Session",
+   "session.TimelineEvent",
+   "session.getRoom",
+   "session.hasBeenEdited",
+   "session.isAttachmentMessage",
+   "session.isContentReportable",
+   "session.isPoll",
+   "session.isRootThread",
+   "session.isSticker",
+   "session.isTextMessage",
+   "session.isThread",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/action/MessageActionsEpoxyController.kt": [
+   "extensions.orFalse",
+   "failure.Failure",
+   "session.MessageLocationContent",
+   "session.SendState",
+   "session.isLocationMessage",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/action/MessageActionState.kt": [
+   "session.SendState",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/action/EventSharedAction.kt": [
+   "session.MessageContent",
+   "session.MessageWithAttachmentContent",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/action/CheckIfCanReplyEventUseCase.kt": [
+   "session.EventType",
+   "session.MessageContent",
+   "session.MessageType",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/timeline/action/CheckIfCanRedactEventUseCase.kt": [
+   "session.EventType",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/sticker/StickerPickerActionHandler.kt": [
+   "session.Session",
+   "session.WidgetType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/search/SearchViewState.kt": [
+   "session.EventAndSender"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/search/SearchViewModel.kt": [
+   "session.SearchResult",
+   "session.Session",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/search/SearchResultItem.kt": [
+   "session.ThreadDetails",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/search/SearchResultController.kt": [
+   "session.Content",
+   "session.Event",
+   "session.Session",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/search/SearchFragment.kt": [
+   "session.Event",
+   "session.getRootThreadEventId"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/poll/VoteToPollUseCase.kt": [
+   "session.LocalEcho",
+   "session.getRoom",
+   "session.getTimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/location/RedactLiveLocationShareEventUseCase.kt": [
+   "session.Event",
+   "session.Room"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/PlainTextComposerLayout.kt": [
+   "session.MessageAudioContent",
+   "session.MessageBeaconInfoContent",
+   "session.MessageContent",
+   "session.MessageEndPollContent",
+   "session.MessageFormat",
+   "session.MessagePollContent",
+   "session.MessageTextContent",
+   "util.ContentUtils",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/MessageComposerViewState.kt": [
+   "extensions.orFalse",
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/MessageComposerViewModel.kt": [
+   "flow.flow",
+   "flow.unwrap",
+   "query.QueryStringValue",
+   "session.ContentAttachmentData",
+   "session.CreateSpaceParams",
+   "session.EventType",
+   "session.MessageContentWithFormattedBody",
+   "session.MessageType",
+   "session.PowerLevelsContent",
+   "session.Room",
+   "session.RoomAvatarContent",
+   "session.RoomEncryptionAlgorithm",
+   "session.RoomMemberContent",
+   "session.Session",
+   "session.UserDraft",
+   "session.getRelationContent",
+   "session.getRoom",
+   "session.getRoomSummary",
+   "session.getRootThreadEventId",
+   "session.getStateEvent",
+   "session.getTextEditableContent",
+   "session.getTimelineEvent",
+   "session.isThread",
+   "session.shouldRenderInThread",
+   "session.toContent",
+   "session.toModel",
+   "util.Optional"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/MessageComposerMode.kt": [
+   "session.TimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/MessageComposerFragment.kt": [
+   "session.ContentAttachmentData",
+   "session.PermalinkService",
+   "session.Session",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/MessageComposerAction.kt": [
+   "session.ContentAttachmentData",
+   "session.MessageAudioContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/AudioMessageHelper.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/detail/composer/mentions/PillDisplayHandler.kt": [
+   "session.PermalinkData",
+   "session.PermalinkParser",
+   "session.RoomMemberSummary",
+   "session.RoomSummary",
+   "util.MatrixItem",
+   "util.toEveryoneInRoomMatrixItem",
+   "util.toMatrixItem",
+   "util.toRoomAliasMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/breadcrumbs/BreadcrumbsViewState.kt": [
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/breadcrumbs/BreadcrumbsViewModel.kt": [
+   "flow.flow",
+   "query.QueryStringValue",
+   "session.Membership",
+   "session.Session",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/breadcrumbs/BreadcrumbsItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/home/room/breadcrumbs/BreadcrumbsController.kt": [
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/form/FormEditableSquareAvatarItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/form/FormEditableAvatarItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/displayname/ProgressiveDisplayNameFallback.kt": [
+   "provider.MatrixItemDisplayNameFallbackProvider",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/displayname/Extension.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/PidInfo.kt": [
+   "session.SharedState",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/Extensions.kt": [
+   "session.Session",
+   "session.TermsResponse",
+   "session.TermsService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/DiscoverySettingsViewModel.kt": [
+   "flow.flow",
+   "session.IdentityServiceError",
+   "session.IdentityServiceListener",
+   "session.Session",
+   "session.SharedState",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/DiscoverySettingsFragment.kt": [
+   "session.SharedState",
+   "session.TermsService",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/DiscoverySettingsController.kt": [
+   "failure.Failure",
+   "session.SharedState",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/DiscoverySettingsAction.kt": [
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/change/SetIdentityServerViewModel.kt": [
+   "failure.Failure",
+   "session.IdentityServiceError",
+   "session.Session",
+   "session.TermsService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/discovery/change/SetIdentityServerFragment.kt": [
+   "session.TermsService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/devtools/RoomDevToolViewState.kt": [
+   "session.Event"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/devtools/RoomDevToolViewModel.kt": [
+   "flow.flow",
+   "query.QueryStringValue",
+   "session.Event",
+   "session.EventType",
+   "session.MessageContent",
+   "session.Session",
+   "session.getRoom",
+   "session.toModel",
+   "util.JsonDict",
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/devtools/RoomDevToolAction.kt": [
+   "session.Event"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/SupportedVerificationMethodsProvider.kt": [
+   "session.VerificationMethod"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/IncomingVerificationRequestHandler.kt": [
+   "session.EVerificationState",
+   "session.PendingVerificationRequest",
+   "session.SasTransactionState",
+   "session.SasVerificationTransaction",
+   "session.Session",
+   "session.VerificationEvent",
+   "session.VerificationService",
+   "session.VerificationTransaction",
+   "session.getUserOrDefault",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/user/VerificationEpoxyExt.kt": [
+   "session.CancelCode",
+   "session.EmojiRepresentation",
+   "session.PendingVerificationRequest",
+   "session.QRCodeVerificationState",
+   "session.RoomEncryptionTrustLevel",
+   "session.SasTransactionState",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/user/UserVerificationViewModel.kt": [
+   "Matrix.Matrix",
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "session.EVerificationState",
+   "session.EmojiRepresentation",
+   "session.PendingVerificationRequest",
+   "session.QRCodeVerificationState",
+   "session.QrCodeVerificationTransaction",
+   "session.SasTransactionState",
+   "session.SasVerificationTransaction",
+   "session.Session",
+   "session.VerificationMethod",
+   "session.VerificationTransaction",
+   "session.getRequest",
+   "session.getTransaction",
+   "session.getUser",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/user/UserVerificationFragment.kt": [
+   "session.EVerificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/user/UserVerificationController.kt": [
+   "session.CancelCode",
+   "session.EVerificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/user/UserVerificationBottomSheet.kt": [
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/self/SelfVerificationViewModel.kt": [
+   "Matrix.Matrix",
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.BackupUtils",
+   "session.EVerificationState",
+   "session.KEYBACKUP_SECRET_SSSS_NAME",
+   "session.MASTER_KEY_SSSS_NAME",
+   "session.PendingVerificationRequest",
+   "session.QrCodeVerificationTransaction",
+   "session.SELF_SIGNING_KEY_SSSS_NAME",
+   "session.SasVerificationTransaction",
+   "session.Session",
+   "session.USER_SIGNING_KEY_SSSS_NAME",
+   "session.VerificationMethod",
+   "session.computeRecoveryKey",
+   "session.getRequest",
+   "session.getTransaction",
+   "session.isVerified",
+   "session.toKeysVersionResult",
+   "util.fromBase64"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/self/SelfVerificationFragment.kt": [
+   "session.EVerificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/self/SelfVerificationController.kt": [
+   "session.CancelCode",
+   "session.EVerificationState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/self/SelfVerificationBottomSheet.kt": [
+   "session.KEYBACKUP_SECRET_SSSS_NAME",
+   "session.MASTER_KEY_SSSS_NAME",
+   "session.SELF_SIGNING_KEY_SSSS_NAME",
+   "session.USER_SIGNING_KEY_SSSS_NAME"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/epoxy/BottomSheetVerificationEmojisItem.kt": [
+   "session.EmojiRepresentation"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/verification/epoxy/BottomSheetVerificationBigImageItem.kt": [
+   "session.RoomEncryptionTrustLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/recover/BootstrapViewState.kt": [
+   "session.SsssKeyCreationInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/recover/BootstrapViewEvents.kt": [
+   "auth.RegistrationFlowResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/recover/BootstrapSharedViewModel.kt": [
+   "auth.LoginFlowTypes",
+   "auth.RegistrationFlowResponse",
+   "auth.UIABaseAuth",
+   "auth.UserInteractiveAuthInterceptor",
+   "auth.UserPasswordAuth",
+   "auth.nextUncompletedStage",
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "failure.Failure",
+   "raw.RawService",
+   "session.DefaultBaseAuth",
+   "session.RawBytesKeySpec",
+   "session.Session",
+   "session.extractCurveKeyFromRecoveryKey",
+   "session.toKeysVersionResult"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/recover/BootstrapMigrateBackupFragment.kt": [
+   "extensions.tryOrNull",
+   "session.isValidRecoveryKey"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/recover/BootstrapCrossSigningTask.kt": [
+   "auth.UserInteractiveAuthInterceptor",
+   "failure.Failure",
+   "failure.MatrixError",
+   "session.EmptyKeySigner",
+   "session.KEYBACKUP_SECRET_SSSS_NAME",
+   "session.KeyRef",
+   "session.MASTER_KEY_SSSS_NAME",
+   "session.SELF_SIGNING_KEY_SSSS_NAME",
+   "session.Session",
+   "session.SsssKeyCreationInfo",
+   "session.SsssKeySpec",
+   "session.USER_SIGNING_KEY_SSSS_NAME",
+   "session.extractCurveKeyFromRecoveryKey",
+   "session.toKeysVersionResult",
+   "util.toBase64NoPadding"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/recover/BootstrapBottomSheet.kt": [
+   "auth.LoginFlowTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/recover/BackupToQuadSMigrationTask.kt": [
+   "listeners.ProgressListener",
+   "session.BackupUtils",
+   "session.EmptyKeySigner",
+   "session.KEYBACKUP_SECRET_SSSS_NAME",
+   "session.KeyRef",
+   "session.RawBytesKeySpec",
+   "session.Session",
+   "session.SsssKeyCreationInfo",
+   "session.computeRecoveryKey",
+   "session.extractCurveKeyFromRecoveryKey",
+   "util.toBase64NoPadding"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/quads/SharedSecuredStorageKeyFragment.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/quads/SharedSecureStorageViewModel.kt": [
+   "Matrix.Matrix",
+   "flow.flow",
+   "listeners.ProgressListener",
+   "session.IntegrityResult",
+   "session.KeyInfo",
+   "session.KeyInfoResult",
+   "session.KeyRef",
+   "session.RawBytesKeySpec",
+   "session.Session",
+   "util.toBase64NoPadding"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysrequest/KeyRequestHandler.kt": [
+   "session.CryptoDeviceInfo",
+   "session.DeviceInfo",
+   "session.DeviceTrustLevel",
+   "session.GossipingRequestListener",
+   "session.IncomingRoomKeyRequest",
+   "session.SasTransactionState",
+   "session.SasVerificationTransaction",
+   "session.SecretShareRequest",
+   "session.Session",
+   "session.VerificationEvent",
+   "session.VerificationService",
+   "session.VerificationTransaction"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/setup/KeysBackupSetupSharedViewModel.kt": [
+   "listeners.ProgressListener",
+   "session.IBackupRecoveryKey",
+   "session.KeysBackupService",
+   "session.KeysVersion",
+   "session.MegolmBackupCreationInfo",
+   "session.Session",
+   "session.toKeysVersionResult"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/settings/KeysBackupSettingsViewModel.kt": [
+   "session.KeysBackupService",
+   "session.KeysBackupState",
+   "session.KeysBackupStateListener",
+   "session.MegolmBackupCreationInfo",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/settings/KeysBackupSettingsRecyclerViewController.kt": [
+   "extensions.orFalse",
+   "session.KeysBackupState",
+   "session.KeysBackupVersionTrust",
+   "session.KeysBackupVersionTrustSignature",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/settings/KeysBackupSettingViewState.kt": [
+   "session.KeysBackupState",
+   "session.KeysBackupVersionTrust",
+   "session.KeysVersionResult"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/settings/KeysBackupManageActivity.kt": [
+   "session.KEYBACKUP_SECRET_SSSS_NAME"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/restore/KeysBackupRestoreSharedViewModel.kt": [
+   "Matrix.Matrix",
+   "extensions.tryOrNull",
+   "listeners.StepProgressListener",
+   "session.BackupUtils",
+   "session.IBackupRecoveryKey",
+   "session.ImportRoomKeysResult",
+   "session.KEYBACKUP_SECRET_SSSS_NAME",
+   "session.KeyInfoResult",
+   "session.KeysBackupService",
+   "session.KeysVersionResult",
+   "session.Session",
+   "session.computeRecoveryKey",
+   "session.toKeysVersionResult",
+   "util.fromBase64"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/restore/KeysBackupRestoreFromKeyViewModel.kt": [
+   "session.BackupUtils"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/restore/KeysBackupRestoreFromKeyFragment.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keysbackup/restore/KeysBackupRestoreActivity.kt": [
+   "session.KEYBACKUP_SECRET_SSSS_NAME"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keys/KeysImporter.kt": [
+   "session.ImportRoomKeysResult",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/crypto/keys/KeysExporter.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/createdirect/DirectRoomHelper.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.CreateRoomParams",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/createdirect/CreateDirectRoomViewModel.kt": [
+   "extensions.orFalse",
+   "raw.RawService",
+   "session.CreateRoomParams",
+   "session.PermalinkData",
+   "session.PermalinkParser",
+   "session.Session",
+   "session.getUserOrDefault"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/createdirect/CreateDirectRoomActivity.kt": [
+   "failure.Failure",
+   "session.CreateRoomFailure"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/contactsbook/ContactsBookViewModel.kt": [
+   "session.IdentityServiceError",
+   "session.Session",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/contactsbook/ContactsBookFragment.kt": [
+   "session.ThreePid",
+   "session.User"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/contactsbook/ContactsBookController.kt": [
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/configuration/ProgressiveEventTypes.kt": [
+   "provider.CustomEventTypesProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/command/ParsedCommand.kt": [
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/command/CommandParser.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/SharedKnownCallsViewModel.kt": [
+   "session.MxCall"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/ProgressiveCallViewState.kt": [
+   "session.CallState",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/ProgressiveCallViewModel.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "extensions.orFalse",
+   "session.CallState",
+   "session.MxCall",
+   "session.MxPeerConnectionState",
+   "session.Session",
+   "session.getRoomSummary",
+   "session.supportCallTransfer",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/ProgressiveCallViewEvents.kt": [
+   "session.TurnServerResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/ProgressiveCallService.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/ProgressiveCallActivity.kt": [
+   "extensions.orFalse",
+   "logger.LoggerTag",
+   "session.CallState",
+   "session.EndCallReason",
+   "session.MxPeerConnectionState",
+   "session.TurnServerResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/CallControlsView.kt": [
+   "session.CallState",
+   "session.MxPeerConnectionState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/webrtc/WebRtcCallManager.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "logger.LoggerTag",
+   "session.CallAnswerContent",
+   "session.CallAssertedIdentityContent",
+   "session.CallCandidatesContent",
+   "session.CallHangupContent",
+   "session.CallInviteContent",
+   "session.CallListener",
+   "session.CallNegotiateContent",
+   "session.CallRejectContent",
+   "session.CallSelectAnswerContent",
+   "session.CallState",
+   "session.EndCallReason",
+   "session.MxCall",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/webrtc/WebRtcCallExt.kt": [
+   "extensions.orFalse",
+   "session.Session",
+   "session.getRoom",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/webrtc/WebRtcCall.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "logger.LoggerTag",
+   "session.CallAnswerContent",
+   "session.CallAssertedIdentityContent",
+   "session.CallCandidatesContent",
+   "session.CallHangupContent",
+   "session.CallIdGenerator",
+   "session.CallInviteContent",
+   "session.CallNegotiateContent",
+   "session.CallRejectContent",
+   "session.CallSelectAnswerContent",
+   "session.CallState",
+   "session.EndCallReason",
+   "session.MxCall",
+   "session.MxPeerConnectionState",
+   "session.SdpType",
+   "session.Session",
+   "session.TurnServerResponse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/webrtc/PeerConnectionObserver.kt": [
+   "logger.LoggerTag",
+   "session.CallState",
+   "session.MxPeerConnectionState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/utils/WebRtcMapping.kt": [
+   "session.CallCandidate",
+   "session.SdpType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/transfer/CallTransferViewModel.kt": [
+   "session.CallState",
+   "session.MxCall"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/lookup/ThirdPartyLookup.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "session.Session",
+   "session.ThirdPartyUser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/lookup/CallUserMapper.kt": [
+   "extensions.tryOrNull",
+   "session.CreateRoomParams",
+   "session.Room",
+   "session.RoomAccountDataTypes",
+   "session.Session",
+   "session.getRoom",
+   "session.toContent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/lookup/CallProtocolsChecker.kt": [
+   "extensions.tryOrNull",
+   "session.Session",
+   "session.ThirdPartyProtocol"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/dialpad/PstnDialActivity.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/dialpad/DialPadLookup.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/RemoveJitsiWidgetView.kt": [
+   "session.Membership"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/ProgressiveJitsiActivity.kt": [
+   "extensions.tryOrNull",
+   "util.JsonDict"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/JitsiWidgetDataFactory.kt": [
+   "extensions.tryOrNull",
+   "session.Widget",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/JitsiService.kt": [
+   "extensions.tryOrNull",
+   "raw.RawService",
+   "session.Session",
+   "session.Widget",
+   "session.WidgetType",
+   "session.getRoomSummary",
+   "util.MatrixJsonParser",
+   "util.appendParamToUrl",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/JitsiCallViewState.kt": [
+   "session.Widget"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/JitsiCallViewModel.kt": [
+   "query.QueryStringValue",
+   "session.Session",
+   "session.Widget",
+   "session.WidgetType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/JitsiActiveConferenceHolder.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/conference/jwt/JitsiJWTFactory.kt": [
+   "session.OpenIdToken"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/audio/CallAudioManager.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/call/audio/API21AudioDeviceDetector.kt": [
+   "logger.LoggerTag"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/autocomplete/AutocompleteMatrixItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/autocomplete/room/AutocompleteRoomPresenter.kt": [
+   "query.QueryStringValue",
+   "session.RoomSummary",
+   "session.Session",
+   "session.roomSummaryQueryParams"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/autocomplete/room/AutocompleteRoomController.kt": [
+   "session.RoomSummary",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/autocomplete/member/AutocompleteMemberPresenter.kt": [
+   "query.QueryStringValue",
+   "session.Event",
+   "session.Membership",
+   "session.PowerLevelsContent",
+   "session.RoomMemberQueryParams",
+   "session.RoomMemberSummary",
+   "session.SenderNotificationPermissionCondition",
+   "session.Session",
+   "session.getRoom",
+   "session.roomMemberQueryParams",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/autocomplete/member/AutocompleteMemberItem.kt": [
+   "session.RoomMemberSummary",
+   "session.RoomSummary"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/autocomplete/member/AutocompleteMemberController.kt": [
+   "util.toEveryoneInRoomMatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/auth/ReAuthViewModel.kt": [
+   "Matrix.Matrix",
+   "auth.LoginFlowTypes",
+   "session.Session",
+   "util.toBase64NoPadding"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/auth/ReAuthActivity.kt": [
+   "auth.AuthenticationService",
+   "auth.LoginFlowTypes",
+   "auth.RegistrationFlowResponse",
+   "auth.nextUncompletedStage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/auth/PromptFragment.kt": [
+   "auth.LoginFlowTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/auth/PendingAuthHandler.kt": [
+   "Matrix.Matrix",
+   "auth.UIABaseAuth",
+   "auth.UserPasswordAuth",
+   "session.UiaCancelledException",
+   "util.fromBase64"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/ShareIntentHandler.kt": [
+   "session.ContentAttachmentData",
+   "util.MimeTypes",
+   "util.isMimeTypeAny",
+   "util.isMimeTypeApplication",
+   "util.isMimeTypeAudio",
+   "util.isMimeTypeFile",
+   "util.isMimeTypeImage",
+   "util.isMimeTypeText",
+   "util.isMimeTypeVideo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/ContentAttachmentData.kt": [
+   "session.ContentAttachmentData",
+   "util.MimeTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/AttachmentsMapper.kt": [
+   "session.ContentAttachmentData",
+   "util.isMimeTypeAudio",
+   "util.isMimeTypeImage",
+   "util.isMimeTypeVideo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/AttachmentsHelper.kt": [
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/preview/Extensions.kt": [
+   "session.ContentAttachmentData",
+   "util.MimeTypes",
+   "util.isMimeTypeImage"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/preview/AttachmentsPreviewViewState.kt": [
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/preview/AttachmentsPreviewFragment.kt": [
+   "extensions.orFalse",
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/preview/AttachmentsPreviewActivity.kt": [
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/preview/AttachmentPreviewItems.kt": [
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/attachments/preview/AttachmentPreviewControllers.kt": [
+   "session.ContentAttachmentData"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/DecryptionFailureTracker.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "session.Event",
+   "session.LiveEventListener",
+   "session.MXCryptoError",
+   "session.Session",
+   "session.TimelineEvent",
+   "util.JsonDict"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/DecryptionFailure.kt": [
+   "session.MXCryptoError"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/store/AnalyticsStore.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/metrics/ProgressivePlugins.kt": [
+   "metrics.MetricPlugin"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/metrics/sentry/SentrySyncDurationMetrics.kt": [
+   "metrics.SyncDurationMetricPlugin"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/metrics/sentry/SentryDownloadDeviceKeysMetrics.kt": [
+   "metrics.DownloadDeviceKeysMetricsPlugin"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/metrics/sentry/SentryCryptoAnalytics.kt": [
+   "metrics.CryptoEvent",
+   "metrics.CryptoMetricPlugin"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/log/AnalyticsLoggerTag.kt": [
+   "logger.LoggerTag"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/impl/DefaultProgressiveAnalytics.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/extensions/ViewRoomExt.kt": [
+   "extensions.orFalse",
+   "session.RoomSummary",
+   "session.RoomType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/extensions/PerformanceTimerExt.kt": [
+   "session.StatisticEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/extensions/JoinedRoomExt.kt": [
+   "extensions.orFalse",
+   "session.PublicRoom",
+   "session.RoomSummary",
+   "session.RoomType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/features/analytics/accountdata/AnalyticsAccountDataViewModel.kt": [
+   "flow.flow",
+   "session.Session",
+   "session.SyncRequestState",
+   "session.toContent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/utils/SystemUtils.kt": [
+   "util.getApplicationInfoCompat"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/utils/ExternalApplicationsUtil.kt": [
+   "extensions.tryOrNull",
+   "util.MimeTypes",
+   "util.isMimeTypeAudio",
+   "util.isMimeTypeImage",
+   "util.isMimeTypeVideo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/ui/views/TypingMessageView.kt": [
+   "session.SenderInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/ui/views/TypingMessageAvatar.kt": [
+   "session.SenderInfo",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/ui/views/ShieldImageView.kt": [
+   "session.RoomEncryptionTrustLevel",
+   "session.UserVerificationLevel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/ui/views/PresenceStateImageView.kt": [
+   "session.PresenceEnum",
+   "session.UserPresence"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/ui/views/NotificationAreaView.kt": [
+   "failure.MatrixError",
+   "session.Event"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/ui/views/CurrentCallsView.kt": [
+   "session.CallState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/session/EnsureSessionSyncingUseCase.kt": [
+   "session.SyncState"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/session/ConfigureAndStartSessionUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/session/clientinfo/UpdateMatrixClientInfoUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/session/clientinfo/SetMatrixClientInfoUseCase.kt": [
+   "session.Session",
+   "session.toContent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/session/clientinfo/GetMatrixClientInfoUseCase.kt": [
+   "session.Session",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/session/clientinfo/DeleteUnusedClientInformationUseCase.kt": [
+   "session.DeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/services/ProgressiveSyncService.kt": [
+   "Matrix.Matrix",
+   "session.SyncAndroidService"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/services/CallRingPlayer.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/services/CallAndroidService.kt": [
+   "logger.LoggerTag",
+   "session.EndCallReason",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/resources/VersionCodeProvider.kt": [
+   "util.getPackageInfoCompat"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/resources/Resource.kt": [
+   "util.MimeTypes",
+   "util.normalizeMimeType"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/pushers/UnifiedPushHelper.kt": [
+   "Matrix.Matrix",
+   "cache.CacheStrategy",
+   "failure.Failure",
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/pushers/PushersManager.kt": [
+   "session.HttpPusher",
+   "session.Pusher"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/pushers/PushParser.kt": [
+   "extensions.tryOrNull",
+   "util.MatrixJsonParser"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/pushers/ProgressiveUnifiedPush.kt": [
+   "logger.LoggerTag"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/pushers/ProgressivePushHandler.kt": [
+   "extensions.tryOrNull",
+   "logger.LoggerTag",
+   "session.Session",
+   "session.getRoom",
+   "session.getTimelineEvent"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/pushers/model/PushDataUnifiedPush.kt": [
+   "MatrixPatterns.MatrixPatterns"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/pushers/model/PushDataFcm.kt": [
+   "MatrixPatterns.MatrixPatterns"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/preference/UserAvatarPreference.kt": [
+   "session.User",
+   "util.MatrixItem",
+   "util.toMatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/preference/ProgressiveBasePreference.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/platform/ProgressiveActivity.kt": [
+   "extensions.orFalse",
+   "extensions.tryOrNull",
+   "failure.GlobalError",
+   "failure.InitialSyncRequestReason"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/notification/UpdateEnableNotificationsSettingOnChangeUseCase.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/notification/PushRulesUpdater.kt": [
+   "flow.flow",
+   "session.Session",
+   "session.UserAccountDataTypes"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/notification/NotificationsSettingUpdater.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/network/WifiDetector.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/glide/ElementToDecryptOption.kt": [
+   "session.ElementToDecrypt"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/glide/AvatarPlaceholder.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/files/LocalFilesHelper.kt": [
+   "extensions.orFalse"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/extensions/TimelineEvent.kt": [
+   "session.EventType",
+   "session.MessageContent",
+   "session.SendState",
+   "session.TimelineEvent",
+   "session.getLastMessageContent",
+   "session.toModel"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/extensions/ThreePid.kt": [
+   "extensions.ensurePrefix",
+   "extensions.tryOrNull",
+   "session.ThreePid"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/extensions/Session.kt": [
+   "session.KeysBackupState",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/extensions/FragmentManager.kt": [
+   "extensions.tryOrNull"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/extensions/Event.kt": [
+   "session.Event"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/extensions/Context.kt": [
+   "util.BuildVersionSdkIntProvider"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/extensions/BasicExtensions.kt": [
+   "MatrixPatterns.MatrixPatterns",
+   "extensions.ensurePrefix"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/event/GetTimelineEventUseCase.kt": [
+   "flow.unwrap",
+   "session.TimelineEvent",
+   "session.getRoom"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/error/ResourceLimitErrorFormatter.kt": [
+   "failure.MatrixError"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/error/ErrorFormatter.kt": [
+   "failure.Failure",
+   "failure.MatrixError",
+   "failure.MatrixIdFailure",
+   "failure.isLimitExceededError",
+   "session.IdentityServiceError"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/epoxy/profiles/ProfileMatrixItemWithPowerLevelWithPresence.kt": [
+   "session.UserPresence"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/epoxy/profiles/ProfileItemExtensions.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/epoxy/profiles/ProfileActionItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/epoxy/profiles/BaseProfileMatrixItem.kt": [
+   "session.UserVerificationLevel",
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/epoxy/bottomsheet/BottomSheetRoomPreviewItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/epoxy/bottomsheet/BottomSheetMessagePreviewItem.kt": [
+   "util.MatrixItem"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/dialogs/UnrecognizedCertificateDialog.kt": [
+   "network.Fingerprint"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/dialogs/ManuallyVerifyDialog.kt": [
+   "extensions.getFingerprintHumanReadable",
+   "session.CryptoDeviceInfo"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/di/SessionInitializer.kt": [
+   "auth.AuthenticationService",
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/di/ImageManager.kt": [
+   "session.Session"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/di/ActiveSessionHolder.kt": [
+   "auth.AuthenticationService",
+   "session.Session",
+   "util.Optional",
+   "util.toOption"
+  ],
+  "progressive/src/main/java/chat/progressive/app/core/device/GetDeviceInfoUseCase.kt": [
+   "session.CryptoDeviceInfo"
+  ]
+ }
+}
