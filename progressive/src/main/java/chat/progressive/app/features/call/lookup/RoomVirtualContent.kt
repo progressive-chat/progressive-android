@@ -1,6 +1,6 @@
 /*
- * Copyright 2024 Progressive Chat
- * Copyright 2021 The Matrix.org Foundation C.I.C.
+ * Copyright 2026 Progressive Chat
+ * Copyright 2026 The Matrix.org Foundation C.I.C.
  *
  * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Progressive
  * Please see LICENSE files in the repository root for full details.

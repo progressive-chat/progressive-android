@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2016 Jeff Gilfelt.
- * Copyright 2020 The Matrix.org Foundation C.I.C.
+ * Copyright (C) 2026 Jeff Gilfelt.
+ * Copyright 2026 The Matrix.org Foundation C.I.C.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

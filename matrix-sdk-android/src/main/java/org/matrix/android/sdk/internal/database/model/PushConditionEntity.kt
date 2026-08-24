@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 The Matrix.org Foundation C.I.C.
+ * Copyright 2026 The Matrix.org Foundation C.I.C.
  *
  * licensed under the apache license, version 2.0 (the "license");
  * you may not use this file except in compliance with the license.

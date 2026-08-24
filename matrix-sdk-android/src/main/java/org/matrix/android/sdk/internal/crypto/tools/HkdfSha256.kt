@@ -1,6 +1,6 @@
 /*
- * Copyright 2020 The Matrix.org Foundation C.I.C.
- * Copyright (C) 2015 Square, Inc.
+ * Copyright 2026 The Matrix.org Foundation C.I.C.
+ * Copyright (C) 2026 Square, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
